@@ -19,7 +19,6 @@
 Download dynaTrace [com.dynatrace.eclipseintegration_6.0.0.6733.jar](com.dynatrace.eclipseintegration_6.0.0.6733.jar) Eclipse Integration Plugin for 6.0  
 Download dynaTrace[com.dynatrace.eclipseintegration_5.6.0.5713.jar](com.dynatrace.eclipseintegration_5.6.0.5713.jar) Eclipse Integration Plugin for 5.6  
 Download dynaTrace [com.dynatrace.eclipseintegration_5.5.0.5226.jar](com.dynatrace.eclipseintegration_5.5.0.5226.jar) Eclipse Integration Plugin for 5.5  
-Download dynaTrace [com.dynatrace.eclipseintegration_5.0.0.3772.jar]
 
 
 To further simplify problem resolution, dynaTrace directly integrates with Eclipse through its dynaTrace Eclipse Integration Plugin. This plugin has two main features:
