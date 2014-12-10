@@ -5,7 +5,7 @@
 | Name | dynaTrace Eclipse Integration Plugin
 | :--- | :---
 | Description | The dynaTrace Eclipse Integration Plugin replaces the previously existing CodeLink Plugin. It provides a comfortable way to perform look-ups of sources files and methods from applications under diagnosis and also allows to launch applications with an injected dynaTrace Agent directly from Eclipse.
-| Version | 3.1.1, 3.5, 4.x, 5.x, 6.0
+| Version | >= 5.5
 | Support | [Supported](https://community.compuwareapm.com/community/display/DL/Support+Levels#SupportLevels-Supported)
 | Known Problems | [KB-454 Software Update in Eclipse encounters problem](https://community.compuwareapm.com/community/display/KB/KB-454+Software+Update+in+Eclipse+encounters+problem)
 | Supported dynaTrace Versions | 3.1, 3.2, 3.5, 4, 4.1, 4.2, 5, 5.5, 5.6, 6.0
@@ -20,12 +20,7 @@
 Download dynaTrace [com.dynatrace.eclipseintegration_6.0.0.6733.jar](com.dynatrace.eclipseintegration_6.0.0.6733.jar) Eclipse Integration Plugin for 6.0  
 Download dynaTrace[com.dynatrace.eclipseintegration_5.6.0.5713.jar](com.dynatrace.eclipseintegration_5.6.0.5713.jar) Eclipse Integration Plugin for 5.6  
 Download dynaTrace [com.dynatrace.eclipseintegration_5.5.0.5226.jar](com.dynatrace.eclipseintegration_5.5.0.5226.jar) Eclipse Integration Plugin for 5.5  
-Download dynaTrace [com.dynatrace.eclipseintegration_5.0.0.3772.jar](com.dynatrace.eclipseintegration_5.0.0.3772.jar) Eclipse Integration Plugin for 5  
-Download dynaTrace [com.dynatrace.eclipseintegration_4.2.0.3154.jar](com.dynatrace.eclipseintegration_4.2.0.3154.jar) Eclipse Integration Plugin for 4.2  
-Download dynaTrace [com.dynatrace.eclipseintegration_4.1.0.2898.jar](com.dynatrace.eclipseintegration_4.1.0.2898.jar) Eclipse Integration Plugin for 4 and 4.1  
-Download dynaTrace [com.dynatrace.eclipseintegration_3.5.0.2248.jar](com.dynatrace.eclipseintegration_3.5.0.2248.jar) Eclipse Integration Plugin for 3.5  
-Download dynaTrace [com.dynatrace.eclipseintegration_3.1.1.1827.jar](com.dynatrace.eclipseintegration_3.1.1.1827.jar) Eclipse Integration Plugin for 3.1 and 3.2
-
+Download dynaTrace [com.dynatrace.eclipseintegration_5.0.0.3772.jar]
 
 
 To further simplify problem resolution, dynaTrace directly integrates with Eclipse through its dynaTrace Eclipse Integration Plugin. This plugin has two main features:
