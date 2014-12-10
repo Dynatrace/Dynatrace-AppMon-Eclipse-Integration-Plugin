@@ -6,7 +6,7 @@
 | :--- | :---
 | Description | The dynaTrace Eclipse Integration Plugin replaces the previously existing CodeLink Plugin. It provides a comfortable way to perform look-ups of sources files and methods from applications under diagnosis and also allows to launch applications with an injected dynaTrace Agent directly from Eclipse.
 | Version | 3.1.1, 3.5, 4.x, 5.x, 6.0
-| Support | [Supported](https://community.compuwareapm.com/display/DL/Support+Levels#SupportLevels-Supported)
+| Support | [Supported](https://community.compuwareapm.com/community/display/DL/Support+Levels#SupportLevels-Supported)
 | Known Problems | [KB-454 Software Update in Eclipse encounters problem](https://community.compuwareapm.com/community/display/KB/KB-454+Software+Update+in+Eclipse+encounters+problem)
 | Supported dynaTrace Versions | 3.1, 3.2, 3.5, 4, 4.1, 4.2, 5, 5.5, 5.6, 6.0
 | Supported Eclipse Versions | Eclipse 3.4 with Java JRE 6 or later and installed SDK and Platform SDK packages
@@ -17,14 +17,14 @@
 
 ** TO CPWR EMPLOYEES  **: When uploading a new version of the plugin also make sure to notify [apmcommunity@compuware.com](mailto:apmcommunity@compuware.com) to upload it to [www.dynatrace.com/eclipseintegration](http://www.dynatrace.com/eclipseintegration). 
 
-Download dynaTrace [com.dynatrace.eclipseintegration_6.0.0.6733.jar](attachments_174751938_1_com.dynatrace.eclipseintegration_6.0.0.6733.jar) Eclipse Integration Plugin for 6.0  
-Download dynaTrace[com.dynatrace.eclipseintegration_5.6.0.5713.jar](attachments_150700304_1_com.dynatrace.eclipseintegration_5.6.0.5713.jar) Eclipse Integration Plugin for 5.6  
-Download dynaTrace [com.dynatrace.eclipseintegration_5.5.0.5226.jar](attachments_121569594_2_com.dynatrace.eclipseintegration_5.5.0.5226.jar) Eclipse Integration Plugin for 5.5  
-Download dynaTrace [com.dynatrace.eclipseintegration_5.0.0.3772.jar](attachments_100925538_1_com.dynatrace.eclipseintegration_5.0.0.3772.jar) Eclipse Integration Plugin for 5  
-Download dynaTrace [com.dynatrace.eclipseintegration_4.2.0.3154.jar](attachments_89718916_1_com.dynatrace.eclipseintegration_4.2.0.3154.jar) Eclipse Integration Plugin for 4.2  
-Download dynaTrace [com.dynatrace.eclipseintegration_4.1.0.2898.jar](attachments_67829819_1_com.dynatrace.eclipseintegration_4.1.0.2898.jar) Eclipse Integration Plugin for 4 and 4.1  
-Download dynaTrace [com.dynatrace.eclipseintegration_3.5.0.2248.jar](attachments_39518955_1_com.dynatrace.eclipseintegration_3.5.0.2248.jar) Eclipse Integration Plugin for 3.5  
-Download dynaTrace [com.dynatrace.eclipseintegration_3.1.1.1827.jar](attachments_17563704_1_com.dynatrace.eclipseintegration_3.1.1.1827.jar) Eclipse Integration Plugin for 3.1 and 3.2
+Download dynaTrace [com.dynatrace.eclipseintegration_6.0.0.6733.jar](com.dynatrace.eclipseintegration_6.0.0.6733.jar) Eclipse Integration Plugin for 6.0  
+Download dynaTrace[com.dynatrace.eclipseintegration_5.6.0.5713.jar](com.dynatrace.eclipseintegration_5.6.0.5713.jar) Eclipse Integration Plugin for 5.6  
+Download dynaTrace [com.dynatrace.eclipseintegration_5.5.0.5226.jar](com.dynatrace.eclipseintegration_5.5.0.5226.jar) Eclipse Integration Plugin for 5.5  
+Download dynaTrace [com.dynatrace.eclipseintegration_5.0.0.3772.jar](com.dynatrace.eclipseintegration_5.0.0.3772.jar) Eclipse Integration Plugin for 5  
+Download dynaTrace [com.dynatrace.eclipseintegration_4.2.0.3154.jar](com.dynatrace.eclipseintegration_4.2.0.3154.jar) Eclipse Integration Plugin for 4.2  
+Download dynaTrace [com.dynatrace.eclipseintegration_4.1.0.2898.jar](com.dynatrace.eclipseintegration_4.1.0.2898.jar) Eclipse Integration Plugin for 4 and 4.1  
+Download dynaTrace [com.dynatrace.eclipseintegration_3.5.0.2248.jar](com.dynatrace.eclipseintegration_3.5.0.2248.jar) Eclipse Integration Plugin for 3.5  
+Download dynaTrace [com.dynatrace.eclipseintegration_3.1.1.1827.jar](com.dynatrace.eclipseintegration_3.1.1.1827.jar) Eclipse Integration Plugin for 3.1 and 3.2
 
 
 
@@ -101,7 +101,7 @@ Also check **"Contact all update sites during install to find required software"
 
 ## Usage
 
-For detailed user guide please consult the [Eclipse Integration Plugin](https://community/display/DOCDT42/Eclipse+Integration+Plugin)
+For detailed user guide please consult the [Eclipse Integration Plugin](https://community.compuwareapm.com/community/display/DOCDT42/Eclipse+Integration+Plugin)
 
 ## Old Versions of this document
 
@@ -111,7 +111,7 @@ Link
 
 CodeLink Plugin 3.0.x
 
-[CodeLink Plugin 3.0.x for Eclipse](https://community/display/DL/CodeLink+Plugin+3.0.x+for+Eclipse)
+[CodeLink Plugin 3.0.x for Eclipse](https://community.compuwareapm.com/community/display/DL/CodeLink+Plugin+3.0.x+for+Eclipse)
 
 CodeLink Plugin 2.6.2
 
