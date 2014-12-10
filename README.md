@@ -103,17 +103,5 @@ Also check **"Contact all update sites during install to find required software"
 
 For detailed user guide please consult the [Eclipse Integration Plugin](https://community.compuwareapm.com/community/display/DOCDT42/Eclipse+Integration+Plugin)
 
-## Old Versions of this document
 
-Version
-
-Link
-
-CodeLink Plugin 3.0.x
-
-[CodeLink Plugin 3.0.x for Eclipse](https://community.compuwareapm.com/community/display/DL/CodeLink+Plugin+3.0.x+for+Eclipse)
-
-CodeLink Plugin 2.6.2
-
-[CodeLink Plugin 2.6.2 for Eclipse](CodeLink_Plugin_2.6.2_for_Eclipse.html)
 
