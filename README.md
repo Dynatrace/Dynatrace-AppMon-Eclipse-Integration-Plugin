@@ -5,10 +5,9 @@
 | Name | dynaTrace Eclipse Integration Plugin
 | :--- | :---
 | Description | The dynaTrace Eclipse Integration Plugin replaces the previously existing CodeLink Plugin. It provides a comfortable way to perform look-ups of sources files and methods from applications under diagnosis and also allows to launch applications with an injected dynaTrace Agent directly from Eclipse.
-| Version | >= 5.5
+| Supported dynaTrace Versions | >= 5.5
 | Support | [Supported](https://community.compuwareapm.com/community/display/DL/Support+Levels#SupportLevels-Supported)
 | Known Problems | [KB-454 Software Update in Eclipse encounters problem](https://community.compuwareapm.com/community/display/KB/KB-454+Software+Update+in+Eclipse+encounters+problem)
-| Supported dynaTrace Versions | 3.1, 3.2, 3.5, 4, 4.1, 4.2, 5, 5.5, 5.6, 6.0
 | Supported Eclipse Versions | Eclipse 3.4 with Java JRE 6 or later and installed SDK and Platform SDK packages
 | Eclipse Update Site | [http://www.dynatrace.com/eclipseintegration](http://www.dynatrace.com/eclipseintegration)
 
