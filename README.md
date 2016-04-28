@@ -13,19 +13,12 @@ Find further information in the [Dynatrace community](https://community.dynatrac
 
 ### From the Eclipse Repository
 
-
-### Manual Installation
-
-* download the Eclipse plugin from the [Dynatrace community](https://community.dynatrace.com/community/display/DL/Dynatrace+Eclipse+Integration+Plugin)
 * in Eclipse, click on "Help" / "Install New Software..."
 
 ![install new software](/img/conf/install_new_software.png)
-* click on Add..
+* click on Add... and enter the repository URL: http://www.dynatrace.com/eclipseintegration
 
-![install new software](/img/conf/add_site.png)
-* click on Local... and select the downloaded file
-
-![install new software](/img/conf/local.png)
+![install new software](/img/conf/add_repository.png)
 
 * select the plugin and click on Next >
 
@@ -33,6 +26,18 @@ Find further information in the [Dynatrace community](https://community.dynatrac
 * accept the license agreement
 * restart Eclipse
 
+
+### Manual Installation
+
+The process is the same as the manual installation (see below). 
+
+* Download the plugin from the [Dynatrace community](https://community.dynatrace.com/community/display/DL/Dynatrace+Eclipse+Integration+Plugin)
+* in Eclipse, click on "Help" / "Install New Software..."
+* click on Archive... and select the downloaded file
+
+![install new software](/img/conf/add_site.png)
+
+* continue with the installation
 
 ## Configuration
 
