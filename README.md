@@ -37,7 +37,6 @@ The process is the same as the manual installation (see below).
 
 ![install new software](/img/conf/add_site.png)
 
-* continue with the installation
 
 ## Configuration
 
