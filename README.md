@@ -7,7 +7,7 @@
 </tr>
 </table>
 
-Find further information in the [dynaTrace community](https://community.dynatrace.com/community/display/DL/Dynatrace+Eclipse+Integration+Plugin).
+Find further information in the [Dynatrace community](https://community.dynatrace.com/community/display/DL/Dynatrace+Eclipse+Integration+Plugin).
 
 ## Installation
 
