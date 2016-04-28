@@ -40,3 +40,8 @@ The process is the same as the manual installation (see below).
 
 ## Configuration
 
+### Global Settings
+
+The global settings for the plugin are located under Window / Preferences
+
+![install new software](/img/conf/global_settings.png)
