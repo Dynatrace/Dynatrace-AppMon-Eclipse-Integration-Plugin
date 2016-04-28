@@ -18,11 +18,11 @@ Find further information in the [Dynatrace community](https://community.dynatrac
 ![install new software](/img/conf/install_new_software.png)
 * click on Add... and enter the repository URL: http://www.dynatrace.com/eclipseintegration
 
-![install new software](/img/conf/add_repository.png)
+![add repository](/img/conf/add_repository.png)
 
 * select the plugin and click on Next >
 
-![install new software](/img/conf/install_local.png)
+![select plugin](/img/conf/install_local.png)
 * accept the license agreement
 * restart Eclipse
 
@@ -35,7 +35,7 @@ The process is the same as the manual installation (see below).
 * in Eclipse, click on "Help" / "Install New Software..."
 * click on Archive... and select the downloaded file
 
-![install new software](/img/conf/add_site.png)
+![add site](/img/conf/add_site.png)
 
 
 ## Configuration
@@ -44,4 +44,10 @@ The process is the same as the manual installation (see below).
 
 The global settings for the plugin are located under Window / Preferences
 
-![install new software](/img/conf/global_settings.png)
+![global settings](/img/conf/global_settings.png)
+
+### Run Configurations 
+
+![run configurations](/img/conf/run_with_appmon_configuration.png) 
+
+![edit run configurations](/img/conf/run_with_appmon_configuration_2.png) 
