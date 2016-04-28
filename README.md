@@ -8,3 +8,13 @@
 </table>
 
 Find further information in the [dynaTrace community](https://community.dynatrace.com/community/display/DL/Dynatrace+Eclipse+Integration+Plugin).
+
+## Installation
+
+### From the Eclipse Repository
+
+### Manual Installation
+
+
+## Configuration
+
