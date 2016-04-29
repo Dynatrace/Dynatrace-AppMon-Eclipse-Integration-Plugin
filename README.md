@@ -65,5 +65,5 @@ The global settings for the plugin are located under Window / Preferences
 
 ## Problems? Questions? Suggestions?
 
-* [Check out the Eclipse Integration Plugin FAQ](FAQ.md)
+* [Eclipse Integration Plugin FAQ / Troubleshooting Guide](FAQ.md)
 * Post any problems, questions or suggestions to the Dynatrace Community's [Application Monitoring & UEM Forum](https://answers.dynatrace.com/spaces/146/index.html).
