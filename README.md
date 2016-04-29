@@ -11,8 +11,18 @@ The Dynatrace Eclipse Integration Plugin enable you to:
 </tr>
 </table>
 
+## Table of Contents
+
+* [Installation](#installation)  
+** [Prerequisites](#prerequisites)  
+
+
+## Headers
+
+<a name="installation"/>
 ## Installation
 
+<a name="prerequisites"/>
 ### Prerequisites
 
 * Dynatrace Application Monitoring Version: 6.1, 6.2, 6.3
