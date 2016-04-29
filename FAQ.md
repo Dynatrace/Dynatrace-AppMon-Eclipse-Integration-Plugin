@@ -73,3 +73,6 @@ You can configure multiple profiles and agent names, one per launch configuratio
 
 ##### Easy way to create Dynatrace configurations
 > Non-dynatrace Eclipse runtime configurations are visible by the plugin. Create one as you normally would, open the "Run With AppMon" \ Run With AppMon Configurations...", select the new configuration, add the Dynatrace AppMon config.
+
+##### Browse REST request used by the plugin
+> REST requests are written to the Eclipse log and visible in the Error Log view.
