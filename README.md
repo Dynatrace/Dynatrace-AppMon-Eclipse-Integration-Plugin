@@ -66,6 +66,7 @@ The global settings for the plugin are located under Window / Preferences
 ### Launcher
 
 The lancher will run applications with an injected Dynatrace Agent using the agent name and additional parameters defined in the run configuration:
+
 ![edit run configurations](/img/use/launcher.png) 
 
 The launcher support the following launch mode:
@@ -75,6 +76,7 @@ The launcher support the following launch mode:
 * Eclipse workbench application
 
 The agent will output debug information into the console:
+
 ![edit run configurations](/img/use/launcher_console.png) 
 
 ### Test Result
