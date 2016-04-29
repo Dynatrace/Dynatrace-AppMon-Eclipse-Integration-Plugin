@@ -1,1 +1,2 @@
-# Dynatrace Eclipse Integration Plugin - FAQ
+# FAQ / Troubleshooting Guide
+
