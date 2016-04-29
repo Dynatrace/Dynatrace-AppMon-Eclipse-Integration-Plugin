@@ -1,6 +1,13 @@
+# FAQ / Troubleshooting Guide
 
 
-#### General
+
+## Problems? Questions? Suggestions?
+
+Post any problems, questions or suggestions to the Dynatrace Community's [Application Monitoring & UEM Forum](https://answers.dynatrace.com/spaces/146/index.html).
+ 
+
+## General
 
 ##### Dynatrace AppMon version compatibility - which version works with the plugin?
 > 6.1 and newer
@@ -8,7 +15,7 @@
 ##### What is CodeLink?
 > The ability to navigate from Dynatrace AppMon Client to code. This is available [TODO continue]
 
-#### Configuration Help
+## Configuration Help
 
 ##### Where is the AppMon Server configuration?
 > In the Eclipse global preferences, under Dynatrace AppMon ( Window / Preferences / Dynatrace AppMon )
@@ -33,7 +40,7 @@ You can configure multiple profiles and agent names, one per launch configuratio
 ##### Where can I enable per-launch session recording?
 > Configured per launch configuration, under "Run with AppMon" toolbar icon [TODO icon]: select "Run with AppMon Configurations...", select a relevant configuration, Dynatrace AppMon tab [TODO icon]
 
-#### Runtime problems
+## Runtime problems
 
 ##### JUnit executions don't appear in AppMon.
 > 1. Execute the launch configuration from the "Run with AppMon" icon [TODO icon screen] vs the standard debug and run icons [TODO icon screen]
@@ -47,7 +54,7 @@ You can configure multiple profiles and agent names, one per launch configuratio
 ##### My Run configuration is not visible under "Run With AppMon Configurations"
 > Only specific run configurations are supported. Please notify us on the AppMon & UEM forum with a request if you need us to support additional ones (https://answers.dynatrace.com/spaces/146/index.html). The supported run configurations are: Java application, JUnit test, Equinox OSGi application, Eclipse workbench application.
 
-#### Error messages (Eclipse Error Log)
+## Error messages (Eclipse Error Log)
 
 ##### Dynatrace Server configured to require SSL if authorization data provided - login failed, failed recording session [ErrorLocation-66]
 > The server may be configured to accept authorization data only over secure (SSL) channel. You can configure the client to use the HTTP port (8021 by default) in the Eclipse preferences under Dynatrace AppMon, or reconfigure the server from the AppMon Client under Settings \ Dynatrace Server... \ Services \ Management Tab \ Accept authentication data only with HTTPS
@@ -62,7 +69,7 @@ You can configure multiple profiles and agent names, one per launch configuratio
 ##### Dynatrace Server is already recording a session, per-launch session couldn't be started [ErrorLocation-59]
 > There is already a session started for the profile on the AppMon Server, or the Server is in continuous transaction storage mode. There can be only one session recorded per server profile. You can disable continuous transaction storage it in AppMon Client, Settings \ Dynatrace Server... \ Storage \ Storage Settings section \ Enable continuous transaction storage
 
-#### Usage hints
+## Usage hints
 
 ##### Easy way to create Dynatrace configurations
 > Non-dynatrace Eclipse runtime configurations are visible by the plugin. Create one as you normally would, open the "Run With AppMon" \ Run With AppMon Configurations...", select the new configuration, add the Dynatrace AppMon config.
