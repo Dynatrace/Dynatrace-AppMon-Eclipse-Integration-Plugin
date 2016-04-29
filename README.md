@@ -1,9 +1,11 @@
 # Dynatrace Eclipse Integration Plugin
 
-<table>
-<tr>
-<td><img src="https://github.com/Dynatrace/Dynatrace-Eclipse-Integration-Plugin/blob/master/img/logo/eclipse.png" width="250"></td>
-<td>The Dynatrace Eclipse Integration Plugin replaces provides a comfortable way to perform look-ups of sources files and methods from applications under diagnosis and allows to launch applications with an injected Dynatrace Agent directly from Eclipse.</td>
+<img src="https://github.com/Dynatrace/Dynatrace-Eclipse-Integration-Plugin/blob/master/img/logo/eclipse.png">
+
+The Dynatrace Eclipse Integration Plugin enable you to:
+* launch applications with an injected Dynatrace Agent directly from Eclipse
+* retrieve & display the key architectural metrics (such as number of SQL queries, external API calls, exceptions and log messages) from your tests
+* perform look-ups of sources files and methods from applications under diagnosis in Dynatrace Application Monitoring</td>
 </tr>
 </table>
 
