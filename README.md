@@ -85,7 +85,11 @@ When lauching JUnit tests, the plug-in will automatically register a test run to
 
 ![edit run configurations](/img/use/test_result.png) 
 
-### Code Look-up
+### Source Code Look-up
+
+The Dynatrace Client enables you to analyze PurePaths down to the individual methods that have been instrumented in the context of the captured transaction. When you identify a problematic method either in the PurePath view or in the Methods view of the Dynatrace Client, you can use the Source Code Lookup to jump to the source code line if you have the Eclipse project open.
+
+![edit run configurations](/img/use/source_lookup.png) 
 
 ## Problems? Questions? Suggestions?
 
