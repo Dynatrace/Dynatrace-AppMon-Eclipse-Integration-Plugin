@@ -65,7 +65,7 @@ The global settings for the plugin are located under Window / Preferences
 
 ### Launcher
 
-The lancher will run applications with an injected Dynatrace Agent directly from Eclipse:
+The lancher will run applications with an injected Dynatrace Agent using the agent name and additional parameters defined in the run configuration:
 ![edit run configurations](/img/use/launcher.png) 
 
 The launcher support the following launch mode:
@@ -77,8 +77,11 @@ The launcher support the following launch mode:
 The agent will output debug information into the console:
 ![edit run configurations](/img/use/launcher_console.png) 
 
-
 ### Test Result
+
+When lauching JUnit tests, the plug-in will automatically register a test run to the Dynatrace Server. The results and key architectural metrics are automatically retrieved and displayed in the *Test Result* tab.
+
+![edit run configurations](/img/use/test_result.png) 
 
 ### Code Look-up
 
