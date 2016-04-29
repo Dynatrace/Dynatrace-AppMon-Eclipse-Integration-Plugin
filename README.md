@@ -7,9 +7,14 @@
 </tr>
 </table>
 
-Find further information in the [Dynatrace community](https://community.dynatrace.com/community/display/DL/Dynatrace+Eclipse+Integration+Plugin).
-
 ## Installation
+
+### Prerequisites
+
+* Dynatrace Application Monitoring Version: 6.1, 6.2, 6.3
+* Eclipse Version: Juno, Kepler, Luna, Mars
+
+Find further information in the [Dynatrace community](https://community.dynatrace.com/community/display/DL/Dynatrace+Eclipse+Integration+Plugin).
 
 ### From the Eclipse Repository
 
