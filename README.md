@@ -20,7 +20,7 @@ The Dynatrace Eclipse Integration Plugin enable you to:
 * [Configuration](#configuration)
  * [Global Settings](#global)
  * [Run Configurations](#run_configurations)
-* [Use](#use)
+* [Use the Eclipse Integration Plugin](#use)
  * [Launcher](#launcher)
  * [Test Result](#test_result)
  * [Source Code Look-up](#source_code)
@@ -83,7 +83,7 @@ The global settings for the plugin are located under Window / Preferences
 ![edit run configurations](/img/conf/run_with_appmon_configuration_2.png) 
 
 <a name="use"/>
-## Use
+## Use the Eclipse Integration Plugin
 
 <a name="launcher"/>
 ### Launcher
