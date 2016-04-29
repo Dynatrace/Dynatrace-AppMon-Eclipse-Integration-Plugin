@@ -56,3 +56,10 @@ The global settings for the plugin are located under Window / Preferences
 ![run configurations](/img/conf/run_with_appmon_configuration.png) 
 
 ![edit run configurations](/img/conf/run_with_appmon_configuration_2.png) 
+
+## Use
+
+## Problems? Questions? Suggestions?
+
+* [Check out the Eclipse Integration Plugin FAQ](FAQ.md)
+* Post any problems, questions or suggestions to the Dynatrace Community's [Application Monitoring & UEM Forum](https://answers.dynatrace.com/spaces/146/index.html).
