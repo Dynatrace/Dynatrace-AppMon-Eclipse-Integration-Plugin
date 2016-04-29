@@ -1,6 +1,7 @@
+
 # Dynatrace Eclipse Integration Plugin
 
-<img src="https://github.com/Dynatrace/Dynatrace-Eclipse-Integration-Plugin/blob/master/img/logo/eclipse.png">
+![install new software](/img/logo/eclipse.png)
 
 The Dynatrace Eclipse Integration Plugin enable you to:
 * launch applications with an injected Dynatrace Agent directly from Eclipse
