@@ -1,4 +1,4 @@
-<img src="/img/logo/eclipse.png" width="200" />
+<img src="/img/logo/eclipse.png" width="300" />
 
 
 # Dynatrace Eclipse Integration Plugin
