@@ -13,7 +13,8 @@ Post any problems, questions or suggestions to the Dynatrace Community's [Applic
 > 6.1 and newer
 
 ##### What is CodeLink?
-> The ability to navigate from Dynatrace AppMon Client to code. This is available [TODO continue]
+> The ability to navigate from Dynatrace AppMon Client to code. E.g. this is available in the PurePaths view, from the PurePath Tree section: after right-clicking on a message call, selecting Source Lookup / Open in IDE. 
+[img](/img/use/source_lookup.png)
 
 ## Configuration Help
 
@@ -21,7 +22,7 @@ Post any problems, questions or suggestions to the Dynatrace Community's [Applic
 > In the Eclipse global preferences, under Dynatrace AppMon ( Window / Preferences / Dynatrace AppMon )
 
 ##### Where is the AppMon Agent configuration?
-> Under the "Run with AppMon" toolbar icon [TODO icon]: select "Run with AppMon Configurations...", select a relevant configuration, Dynatrace AppMon tab [TODO icon]
+> Under the "Run with AppMon" toolbar ![icon](/img/use/run_icon_on_bar.png): select "Run with AppMon Configurations...", select a relevant configuration, Dynatrace AppMon [tab](/img/conf/run_with_appmon_configuration_2.png)
 
 ##### Can I have the Dynatrace Agent connect directly into the AppMon Server without a collector?
 > Yes, input the server's host and "Window \ Preferences \ Dynatrace AppMon"
@@ -38,12 +39,12 @@ Post any problems, questions or suggestions to the Dynatrace Community's [Applic
 You can configure multiple profiles and agent names, one per launch configuration.
 
 ##### Where can I enable per-launch session recording?
-> Configured per launch configuration, under "Run with AppMon" toolbar icon [TODO icon]: select "Run with AppMon Configurations...", select a relevant configuration, Dynatrace AppMon tab [TODO icon]
+> Configured per launch configuration, under "Run with AppMon" toolbar [icon](/img/use/run_icon_on_bar.png): select "Run with AppMon Configurations...", select a relevant configuration, Dynatrace AppMon [tab](/img/conf/run_with_appmon_configuration_2.png)
 
 ## Runtime problems
 
 ##### JUnit executions don't appear in AppMon.
-> 1. Execute the launch configuration from the "Run with AppMon" icon [TODO icon screen] vs the standard debug and run icons [TODO icon screen]
+> 1. Execute the launch configuration from the "Run with AppMon" icon ![icon](/img/use/run_icon_on_bar.png) vs the standard debug and run icons.
 > 2. Check the Eclipse console for the agent output, confirm that it is able to connect to the collector. There is no popup or error message if this fails.
 > 3. Check the system profile and agent name configured in the Dynatrace launch configuration. Confirm AppMon Server contains this profile, and the agent name is mapped to this profile ( Run with AppMon icon / Run with AppMon Configurations... \ Dynatrace AppMon tab )
 > 3. Check the Eclipse Error Log view (Ctrl + 3, input Error Log) for errors
