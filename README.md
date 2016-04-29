@@ -63,6 +63,25 @@ The global settings for the plugin are located under Window / Preferences
 
 ## Use
 
+### Launcher
+
+The lancher will run applications with an injected Dynatrace Agent directly from Eclipse:
+![edit run configurations](/img/use/launcher.png) 
+
+The launcher support the following launch mode:
+* Java application
+* JUnit test
+* Equinox OSGi application
+* Eclipse workbench application
+
+The agent will output debug information into the console:
+![edit run configurations](/img/use/launcher_console.png) 
+
+
+### Test Result
+
+### Code Look-up
+
 ## Problems? Questions? Suggestions?
 
 * [Eclipse Integration Plugin FAQ / Troubleshooting Guide](FAQ.md)
