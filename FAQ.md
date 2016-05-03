@@ -14,7 +14,8 @@ Post any problems, questions or suggestions to the Dynatrace Community's [Applic
 
 ##### What is CodeLink?
 > The ability to navigate from Dynatrace AppMon Client to code. E.g. this is available in the PurePaths view, from the PurePath Tree section: after right-clicking on a message call, selecting Source Lookup / Open in IDE. 
-[img](/img/use/source_lookup.png)
+
+![img](/img/use/source_lookup.png)
 
 ## Configuration Help
 
