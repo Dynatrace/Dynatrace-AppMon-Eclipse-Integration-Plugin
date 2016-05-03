@@ -23,7 +23,7 @@ Post any problems, questions or suggestions to the Dynatrace Community's [Applic
 > In the Eclipse global preferences, under Dynatrace AppMon ( Window / Preferences / Dynatrace AppMon )
 
 ##### Where is the AppMon Agent configuration?
-> Under the "Run with AppMon" toolbar ![icon](/img/use/run_icon_on_bar.png): select "Run with AppMon Configurations...", select a relevant configuration, Dynatrace AppMon [tab](/img/conf/run_with_appmon_configuration_2.png)
+> Under the "Run with AppMon" [toolbar](/img/use/run_icon_on_bar.png): select "Run with AppMon Configurations...", select a relevant configuration, [Dynatrace AppMon tab](/img/conf/run_with_appmon_configuration_2.png)
 
 ##### Can I have the Dynatrace Agent connect directly into the AppMon Server without a collector?
 > Yes, input the server's host and port as the collector's host and port into Eclipse global Dynatrace AppMon configuration under "Window \ Preferences \ Dynatrace AppMon".
@@ -36,16 +36,15 @@ Post any problems, questions or suggestions to the Dynatrace Community's [Applic
 
 ##### Can I configure multiple servers/collectors?
 > No. There is a single server and collector configuration which you would have to change every time.
-> We think about the plugin as a development tool, connecting to a developer's private Dynatrace AppMon environment. If your use-case differs from what we've envisioned please contact us at the Q&A site (https://answers.dynatrace.com/spaces/148/uem-open-q-a_2.html)
-You can configure multiple profiles and agent names, one per launch configuration.
+> But you can configure multiple profiles and agent names, one per launch configuration.
 
 ##### Where can I enable per-launch session recording?
-> Configured per launch configuration, under "Run with AppMon" toolbar [icon](/img/use/run_icon_on_bar.png): select "Run with AppMon Configurations...", select a relevant configuration, Dynatrace AppMon [tab](/img/conf/run_with_appmon_configuration_2.png)
+> Configured per launch configuration, under ["Run with AppMon" toolbar](/img/use/run_icon_on_bar.png): select "Run with AppMon Configurations...", select a relevant configuration, [Dynatrace AppMon tab](/img/conf/run_with_appmon_configuration_2.png)
 
 ## Runtime problems
 
 ##### JUnit executions don't appear in AppMon.
-> 1. Execute the launch configuration from the "Run with AppMon" icon ![icon](/img/use/run_icon_on_bar.png) vs the standard debug and run icons.
+> 1. Execute the launch configuration from the ["Run with AppMon" icon](/img/use/run_icon_on_bar.png) vs the standard debug and run icons.
 > 2. Check the Eclipse console for the agent output, confirm that it is able to connect to the collector. There is no popup or error message if this fails.
 > 3. Check the system profile and agent name configured in the Dynatrace launch configuration. Confirm AppMon Server contains this profile, and the agent name is mapped to this profile ( Run with AppMon icon / Run with AppMon Configurations... \ Dynatrace AppMon tab )
 > 3. Check the Eclipse Error Log view (Ctrl + 3, input Error Log) for errors
@@ -54,7 +53,7 @@ You can configure multiple profiles and agent names, one per launch configuratio
 > 6. Browse the REST requests and responses in the Eclipse Error Log view. There should be a POST request  to /rest/management/profiles/Monitoring/testruns, a 201 response with the testrunId (e.g. 47ca24ed-46df-425b-8b90-f3922f89bd18); afterwards polling requests to /rest/management/profiles/Monitoring/testruns/testrunId, with XML responses.
 
 ##### My Run configuration is not visible under "Run With AppMon Configurations"
-> Only specific run configurations are supported. Please notify us on the AppMon & UEM forum with a request if you need us to support additional ones (https://answers.dynatrace.com/spaces/146/index.html). The supported run configurations are: Java application, JUnit test, Equinox OSGi application, Eclipse workbench application.
+> Only specific run configurations are supported. The currenlty supported run configurations are: Java application, JUnit test, Equinox OSGi application, Eclipse workbench application.
 
 ## Error messages (Eclipse Error Log)
 
