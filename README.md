@@ -109,6 +109,10 @@ When lauching JUnit tests, the plug-in will automatically register a test run to
 
 ![edit run configurations](/img/use/test_result.png) 
 
+The test results are also visible in the Dynatrace Client for further drill-down to the PurePath level.
+
+![edit run configurations](/img/use/dynatrace_client_test_automation.png) 
+
 <a name="source_code"/>
 ### Source Code Look-up
 
