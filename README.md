@@ -103,7 +103,7 @@ The agent will output debug information into the console:
 <a name="test_result"/>
 ### Test Result
 
-When lauching JUnit tests, the plug-in will automatically register a test run to the Dynatrace Server. The results and key architectural metrics are automatically retrieved and displayed in the *Test Result* tab.
+When lauching JUnit tests with the Dynatrace launcher, the plug-in will automatically register a test run to the Dynatrace Server. The results and key architectural metrics are automatically retrieved and displayed in the *Test Result* tab.
 
 ![edit run configurations](/img/use/test_result.png) 
 
