@@ -44,10 +44,10 @@ Post any problems, questions or suggestions to the Dynatrace Community's [Applic
 ## Runtime problems
 
 ##### JUnit executions don't appear in AppMon.
-> 1. Execute the launch configuration from the ["Run with AppMon" icon](/img/use/run_icon_on_bar.png) vs the standard debug and run icons.
+> 1. Execute the launch configuration from the "Run with AppMon" icon !["Run with AppMon" icon](/img/use/run_icon_on_bar.png) vs the standard debug and run icons.
 > 2. Check the Eclipse console for the agent output, confirm that it is able to connect to the collector. There is no popup or error message if this fails.
 > 3. Check the system profile and agent name configured in the Dynatrace launch configuration. Confirm AppMon Server contains this profile, and the agent name is mapped to this profile ( Run with AppMon icon / Run with AppMon Configurations... \ Dynatrace AppMon tab )
-> 3. Check the Eclipse Error Log view (Ctrl + 3, input Error Log) for errors
+> 3. Check the Eclipse Error Log view (Ctrl + 3, input "Error Log" in the popup) for errors
 > 4. Confirm that you input (1) the dynatrace agent library (2) AppMon server, collector, client addresses into eclipse configuration under "Window \ Preferences \ Dynatrace AppMon"
 > 5. Confirm that Eclipse has REST http/https connectivity to the server, collector and client.
 > 6. Browse the REST requests and responses in the Eclipse Error Log view. There should be a POST request  to /rest/management/profiles/Monitoring/testruns, a 201 response with the testrunId (e.g. 47ca24ed-46df-425b-8b90-f3922f89bd18); afterwards polling requests to /rest/management/profiles/Monitoring/testruns/testrunId, with XML responses.
