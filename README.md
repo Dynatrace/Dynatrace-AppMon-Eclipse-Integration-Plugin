@@ -3,7 +3,7 @@
 
 # Dynatrace Eclipse Integration Plugin
 
-Download: https://github.com/Dynatrace/Dynatrace-Eclipse-Integration-Plugin/releases/download/6.3.4/Dynatrace_Eclipse_Integration_6.3.4.2020.zip
+Download Latest Release Candidate: https://github.com/Dynatrace/Dynatrace-Eclipse-Integration-Plugin/releases/download/6.3.4/Dynatrace_Eclipse_Integration_6.3.4.2020.zip
 
 The Dynatrace Eclipse Integration Plugin enable you to:
 * launch applications with an injected Dynatrace Agent directly from Eclipse
