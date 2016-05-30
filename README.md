@@ -4,6 +4,7 @@
 # Dynatrace Eclipse Integration Plugin
 
 Download Latest Release Candidate: https://github.com/Dynatrace/Dynatrace-Eclipse-Integration-Plugin/releases/download/6.3.4/Dynatrace_Eclipse_Integration_6.3.4.2020.zip
+([Manual Installation](#manual))
 
 The Dynatrace Eclipse Integration Plugin enable you to:
 * launch applications with an injected Dynatrace Agent directly from Eclipse
@@ -62,9 +63,11 @@ Find further information in the [Dynatrace community](https://community.dynatrac
 
 The process is the same as the manual installation (see below). 
 
-* Download the plugin from the [Dynatrace community](https://community.dynatrace.com/community/display/DL/Dynatrace+Eclipse+Integration+Plugin)
+* Download the [latest plugin](https://github.com/Dynatrace/Dynatrace-Eclipse-Integration-Plugin/releases/download/6.3.4/Dynatrace_Eclipse_Integration_6.3.4.2020.zip)
+* unzip the archive
 * in Eclipse, click on "Help" / "Install New Software..."
-* click on Archive... and select the downloaded file
+* Add.., Local...
+* select the extracted CodeLink63 directory
 
 ![add site](/img/conf/add_site.png)
 
