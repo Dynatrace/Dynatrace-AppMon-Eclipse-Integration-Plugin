@@ -15,7 +15,7 @@ The Dynatrace Eclipse Integration Plugin enable you to:
 
 * [Installation](#installation)  
  * [Prerequisites](#prerequisites)  
- * [From the Eclipse Repository](#repository)
+ * ~~[From the Eclipse Repository](#repository)~~ (temporarily unavailable)
  * [Manual Installation](#manual)
 * [Configuration](#configuration)
  * [Global Settings](#global)
@@ -43,20 +43,22 @@ The Dynatrace Eclipse Integration Plugin enable you to:
 Find further information in the [Dynatrace community](https://community.dynatrace.com/community/display/DL/Dynatrace+Eclipse+Integration+Plugin).
 
 <a name="repository"/>
-### From the Eclipse Repository
+### ~~From the Eclipse Repository~~
 
-* in Eclipse, click on "Help" / "Install New Software..."
+Please [install manually](#manual). The latest version not yet available on the Eclipse Repository. We are sorry for the inconvenience.
 
-![install new software](/img/conf/install_new_software.png)
-* click on Add... and enter the repository URL: http://www.dynatrace.com/eclipseintegration
+* ~~in Eclipse, click on "Help" / "Install New Software..."~~
+
+~~![install new software](/img/conf/install_new_software.png)~~
+* ~~click on Add... and enter the repository URL: http://www.dynatrace.com/eclipseintegration~~
 
 ![add repository](/img/conf/add_repository.png)
 
-* select the plugin and click on Next >
+* ~~select the plugin and click on Next~~
 
 ![select plugin](/img/conf/install_local.png)
-* accept the license agreement
-* restart Eclipse
+* ~~accept the license agreement~~
+* ~~restart Eclipse when prompted~~
 
 <a name="manual"/>
 ### Manual Installation
