@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+           point="org.eclipse.ui.preferencePages">
+      <page
+              class="com.dynatrace.diagnostics.eclipseintegration.ui.preferencepage.EclipseIntegrationPreferencePage"
+              id="com.dynatrace.diagnostics.eclipseintegration.ui.preferencepage.EclipseIntegrationPreferencePage"
+              name="%preferences_menu_label">
+      </page>
+   </extension>
+   <extension
+           point="org.eclipse.ui.propertyPages">
+      <page
+              class="com.dynatrace.diagnostics.codelink.ui.propertypage.DTDPropertyPage"
+              id="com.dynatrace.diagnostics.codelink.ui.propertypage.DTDPropertyPage"
+              name="%javaproject_global_title">
+         <enabledWhen>
+            <adapt type="org.eclipse.core.resources.IProject">
+               <test property="org.eclipse.core.resources.projectNature" value="org.eclipse.jdt.core.javanature"/>
+            </adapt>
+         </enabledWhen>
+      </page>
+
+   </extension>
+   <extension point="org.eclipse.ui.startup">
+      <startup class="com.dynatrace.diagnostics.eclipseintegration.Startup" />
+   </extension>
+
+
+   <extension point="org.eclipse.debug.core.launchModes">
+      <launchMode label="%launch_tab_button_label" mode="dynatrace" />
+   </extension>
+
+   <extension point="org.eclipse.debug.core.launchDelegates">
+      <launchDelegate id="com.dynatrace.launcher.launching.DynatraceJavaLaunchDelegate"
+                      delegate="com.dynatrace.diagnostics.launcher.eclipsedelegates.DynatraceJavaLaunchDelegate"
+                      type="org.eclipse.jdt.launching.localJavaApplication" modes="dynatrace">
+      </launchDelegate>
+      <launchDelegate
+              delegate="com.dynatrace.diagnostics.launcher.eclipsedelegates.DynatraceEquinoxLaunchDelegate"
+              id="com.dynatrace.launcher.launching.DynatraceEquinoxLaunchDelegate" modes="dynatrace"
+              type="org.eclipse.pde.ui.EquinoxLauncher">
+      </launchDelegate>
+      <launchDelegate
+              delegate="com.dynatrace.diagnostics.launcher.eclipsedelegates.DynatraceJunitLaunchDelegate"
+              id="com.dynatrace.launcher.launching.DynatraceJunitLaunchDelegate" modes="dynatrace"
+              type="org.eclipse.jdt.junit.launchconfig">
+      </launchDelegate>
+      <launchDelegate
+              delegate="com.dynatrace.diagnostics.launcher.eclipsedelegates.DynatraceJunitPluginLaunchDelegate"
+              id="com.dynatrace.launcher.launching.DynatraceJunitPluginLaunchDelegate" modes="dynatrace"
+              type="org.eclipse.pde.ui.JunitLaunchConfig">
+      </launchDelegate>
+      <launchDelegate
+              delegate="com.dynatrace.diagnostics.launcher.DynatraceEclipseLaunchDelegate"
+              id="com.dynatrace.launcher.launching.DynatraceEclipseLaunchDelegate" modes="dynatrace"
+              type="org.eclipse.pde.ui.RuntimeWorkbench">
+      </launchDelegate>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution objectClass="org.eclipse.jdt.core.IJavaElement"
+                          id="com.dynatrace.contextualLaunch.run">
+         <action label="%launch_with_agent_as" style="pulldown"
+                 class="com.dynatrace.diagnostics.launcher.ui.actions.DynatraceContextualRunAction"
+                 menubarPath="additions" enablesFor="+"
+                 id="com.dynatrace.run.submenu">
+         </action>
+      </objectContribution>
+   </extension>
+
+   <extension
+           point="org.eclipse.ui.commands">
+      <category
+              id="com.dynatrace.launcher.category"
+              name="%pluginName">
+      </category>
+      <command
+              categoryId="com.dynatrace.launcher.category"
+              id="com.dynatrace.launcher.runLast"
+              name="%launch_with_agent">
+      </command>
+   </extension>
+
+
+   <extension point="org.eclipse.ui.actionSets">
+      <actionSet label="%LaunchActionSet.label" visible="true"
+                 id="com.dynatrace.launcher.DynatraceActionSet">
+         <menu id="org.eclipse.ui.run" label="Run" path="additions">
+            <separator name="relaunchGroup"/>
+            <separator name="emptyLaunchGroup"/>
+         </menu>
+         <action id="com.dynatrace.launcher.ui.actions.DynatraceLaunchToolbarAction"
+                 toolbarPath="org.eclipse.debug.ui.launchActionSet/debug"
+                 hoverIcon="icons/dynatrace_run.png"
+                 class="com.dynatrace.diagnostics.launcher.ui.actions.DynatraceLaunchToolbarAction"
+                 disabledIcon="icons/dynatrace_run.png" icon="icons/dynatrace_run.png"
+                 helpContextId="run_action_context" label="%launch_with_agent" style="pulldown">
+         </action>
+
+         <action
+                 class="com.dynatrace.diagnostics.launcher.ui.actions.OpenDynatraceConfigurations"
+                 helpContextId="open_run_configurations_action_context"
+                 id="com.dynatrace.launcher.ui.actions.OpenDynatraceConfigurations"
+                 label="%launch_with_agent_configurations"
+                 menubarPath="org.eclipse.ui.run/emptyLaunchGroup">
+         </action>
+         <action
+                 class="com.dynatrace.diagnostics.launcher.ui.actions.DynatraceAsAction"
+                 helpContextId="run_with_configuration_action_context"
+                 id="com.dynatrace.launcher.ui.actions.DynatraceAsAction"
+                 label="%launch_with_agent_as"
+                 menubarPath="org.eclipse.ui.run/emptyLaunchGroup"
+                 style="pulldown">
+         </action>
+         <action
+                 label="%launch_with_agent_history"
+                 style="pulldown"
+                 helpContextId="run_history_menu_action_context"
+                 class="com.dynatrace.diagnostics.launcher.ui.actions.DynatraceRunHistoryMenuAction"
+                 menubarPath="org.eclipse.ui.run/emptyLaunchGroup"
+                 id="com.dynatrace.launcher.ui.actions.DynatraceRunHistoryMenuAction">
+         </action>
+         <action
+                 class="com.dynatrace.diagnostics.launcher.ui.actions.DynatraceRunLastAction"
+                 definitionId="com.dynatrace.launcher.runLast"
+                 disabledIcon="icons/dynatrace_run.png"
+                 hoverIcon="icons/dynatrace_run.png"
+                 icon="icons/dynatrace_run.png"
+                 id="com.dynatrace.launcher.ui.actions.DynatraceRunLastAction"
+                 label="%launch_with_agent"
+                 menubarPath="org.eclipse.ui.run/relaunchGroup">
+         </action>
+
+
+      </actionSet>
+   </extension>
+   <extension point="org.eclipse.debug.ui.launchGroups">
+      <launchGroup bannerImage="icons/dynatrace_l.png" id="com.dynatrace.run"
+                   image="icons/dynatrace_run.png" label="%launch_with_agent" mode="dynatrace">
+      </launchGroup>
+   </extension>
+
+   <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+              type="org.eclipse.jdt.launching.localJavaApplication"
+              helpContextId="org.eclipse.jdt.debug.ui.launchConfigHelpContext.local_java_application"
+              class="com.dynatrace.diagnostics.launcher.ui.tabgroups.LocalJavaApplicationTabGroup"
+              id="org.eclipse.jdt.debug.ui.launchConfigurationTabGroup.localJavaApplication">
+         <launchMode mode="dynatrace" description="%launchtabgroup_java">
+         </launchMode>
+      </launchConfigurationTabGroup>
+      <launchConfigurationTabGroup type="org.eclipse.jdt.junit.launchconfig"
+                                   helpContextId="org.eclipse.jdt.junit.junit_tab_group"
+                                   class="com.dynatrace.diagnostics.launcher.ui.tabgroups.JUnitTabGroup"
+                                   id="org.eclipse.jdt.junit.launchConfigurationTabGroup.junit">
+         <launchMode description="%launchtabgroup_junit" mode="dynatrace">
+         </launchMode>
+      </launchConfigurationTabGroup>
+
+      <launchConfigurationTabGroup type="org.eclipse.pde.ui.JunitLaunchConfig"
+                                   class="com.dynatrace.diagnostics.launcher.ui.tabgroups.JUnitPluginTabGroup"
+                                   id="org.eclipse.pde.ui.launcher.JUnitTabGroup">
+         <launchMode description="%launchtabgroup_junitplugin" mode="dynatrace">
+         </launchMode>
+      </launchConfigurationTabGroup>
+
+      <launchConfigurationTabGroup type="org.eclipse.pde.ui.RuntimeWorkbench"
+                                   class="com.dynatrace.diagnostics.launcher.ui.tabgroups.EclipseLauncherTabGroup"
+                                   id="org.eclipse.pde.ui.launcher.WorkbenchLauncherTabGroup">
+         <launchMode description="%launchtabgroup_eclipse" mode="dynatrace">
+         </launchMode>
+      </launchConfigurationTabGroup>
+      <launchConfigurationTabGroup type="org.eclipse.pde.ui.EquinoxLauncher"
+                                   class="com.dynatrace.diagnostics.launcher.ui.tabgroups.OSGiLauncherTabGroup"
+                                   id="org.eclipse.pde.ui.launcher.EquinoxLauncherTabGroup">
+         <launchMode description="%launchtabgroup_osgi" mode="dynatrace">
+         </launchMode>
+      </launchConfigurationTabGroup>
+
+   </extension>
+
+   <extension point="org.eclipse.debug.ui.launchShortcuts">
+      <shortcut
+              class="org.eclipse.jdt.debug.ui.launchConfigurations.JavaApplicationLaunchShortcut"
+              icon="icons/java_app.gif" id="com.dynatrace.localJavaShortcut" label="%launchshortcut_java"
+              modes="dynatrace">
+         <contextualLaunch>
+            <enablement>
+               <with variable="selection">
+                  <count value="1" />
+                  <iterate>
+                     <and>
+                        <adapt type="org.eclipse.jdt.core.IJavaElement">
+                           <test property="org.eclipse.jdt.core.isInJavaProject" />
+                        </adapt>
+                        <or>
+                           <test property="org.eclipse.jdt.launching.hasMain" />
+                           <test property="org.eclipse.jdt.launching.isContainer" />
+                           <test property="org.eclipse.jdt.launching.isPackageFragment" />
+                           <test property="org.eclipse.jdt.launching.isPackageFragmentRoot" />
+                        </or>
+                     </and>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+         <configurationType id="org.eclipse.jdt.launching.localJavaApplication">
+         </configurationType>
+         <description description="%meh" mode="dynatrace">
+         </description>
+      </shortcut>
+
+      <shortcut label="%launchshortcut_osgi" icon="icons/equinox.gif"
+                modes="dynatrace" class="org.eclipse.pde.ui.launcher.OSGiLaunchShortcut"
+                id="com.dynatrace.EquinoxLaunchShortcut">
+         <contextualLaunch>
+            <enablement>
+               <with variable="selection">
+                  <count value="1" />
+                  <iterate>
+                     <and>
+                        <test property="org.eclipse.debug.ui.projectNature" value="org.eclipse.pde.PluginNature" />
+                        <or>
+                           <adapt type="org.eclipse.core.resources.IProject" />
+                           <test property="org.eclipse.debug.ui.matchesPattern"
+                                 value="plugin.xml" />
+                           <test property="org.eclipse.debug.ui.matchesPattern"
+                                 value="MANIFEST.MF" />
+                        </or>
+                     </and>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+         <configurationType id="org.eclipse.pde.ui.EquinoxLauncher">
+         </configurationType>
+         <description description="%RunOSGiLaunchShortcut.description"
+                      mode="dynatrace">
+         </description>
+      </shortcut>
+
+      <shortcut label="%launchshortcut_eclipse" icon="icons/eclipse_launcher.gif"
+                modes="run, debug" class="org.eclipse.pde.ui.launcher.EclipseLaunchShortcut"
+                id="com.dynatrace.runtimeWorkbenchShortcut">
+         <contextualLaunch>
+            <enablement>
+               <with variable="selection">
+                  <count value="1" />
+                  <iterate>
+                     <and>
+                        <test property="org.eclipse.debug.ui.projectNature" value="org.eclipse.pde.PluginNature" />
+                        <or>
+                           <adapt type="org.eclipse.core.resources.IProject" />
+                           <test property="org.eclipse.debug.ui.matchesPattern"
+                                 value="plugin.xml" />
+                           <test property="org.eclipse.debug.ui.matchesPattern"
+                                 value="MANIFEST.MF" />
+                           <test property="org.eclipse.debug.ui.matchesPattern"
+                                 value="*.product" />
+                        </or>
+                     </and>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+         <configurationType id="org.eclipse.pde.ui.RuntimeWorkbench">
+         </configurationType>
+         <description description="%RunPDELaunchShortcut.description"
+                      mode="run">
+         </description>
+         <description description="%DebugPDELaunchShortcut.description"
+                      mode="debug">
+         </description>
+      </shortcut>
+      <shortcut label="%launchshortcut_junit" icon="icons/junit.gif"
+                class="org.eclipse.jdt.junit.launcher.JUnitLaunchShortcut"
+                modes="dynatrace" id="com.dynatrace.junitShortcut">
+         <contextualLaunch>
+            <enablement>
+               <with variable="selection">
+                  <count value="1" />
+                  <iterate>
+                     <adapt type="org.eclipse.jdt.core.IJavaElement">
+                        <test property="org.eclipse.jdt.core.isInJavaProject" />
+                        <test property="org.eclipse.jdt.core.hasTypeOnClasspath"
+                              value="junit.framework.Test" />
+                        <test property="org.eclipse.jdt.junit.canLaunchAsJUnit"
+                              forcePluginActivation="true" />
+                     </adapt>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+         <configurationType id="org.eclipse.jdt.junit.launchconfig">
+         </configurationType>
+         <description description="%DebugJUnitLaunchShortcut.description"
+                      mode="dynatrace">
+         </description>
+      </shortcut>
+      <shortcut
+              class="org.eclipse.pde.ui.launcher.JUnitWorkbenchLaunchShortcut"
+              icon="/icons/junit.gif"
+              id="org.eclipse.pde.ui.junitWorkbenchShortcut"
+              label="%launchshortcut_junitplugin"
+              modes="dynatrace">
+         <contextualLaunch>
+            <enablement>
+               <with variable="selection">
+                  <count value="1"/>
+                  <iterate>
+                     <adapt type="org.eclipse.jdt.core.IJavaElement">
+                        <test property="org.eclipse.jdt.core.isInJavaProjectWithNature" value="org.eclipse.pde.PluginNature"/>
+                        <test property="org.eclipse.jdt.core.hasTypeOnClasspath" value="junit.framework.Test"/>
+                        <test property="org.eclipse.jdt.junit.canLaunchAsJUnit" forcePluginActivation="true"/>
+                     </adapt>
+                  </iterate>
+               </with>
+            </enablement>
+         </contextualLaunch>
+         <configurationType
+                 id="org.eclipse.pde.ui.JunitLaunchConfig">
+         </configurationType>
+         <description
+                 description="%RunJUnitPluginLaunchShortcut.description"
+                 mode="dynatrace">
+         </description>
+      </shortcut>
+   </extension>
+
+   <extension point="org.eclipse.ui.views">
+      <category
+              id="com.dynatrace.views.category"
+              name="%testresult_view_category">
+      </category>
+      <view
+              category="com.dynatrace.views.category"
+              class="com.dynatrace.diagnostics.launcher.ui.testresults.TestResultsView"
+              id="com.dynatrace.diagnostics.testruns.view"
+              icon="/icons/dynatrace_small_logo.png"
+              name="%testresult_view_name">
+      </view>
+   </extension>
+
+
+</plugin>
