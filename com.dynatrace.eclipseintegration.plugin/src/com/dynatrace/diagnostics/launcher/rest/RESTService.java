@@ -8,8 +8,6 @@ import javax.ws.rs.core.Form;
 
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import com.dynatrace.diagnostics.codelink.logging.LogHelper;
-import com.dynatrace.diagnostics.launcher.rest.exceptions.ClientConnectionFailedException;
-import com.dynatrace.diagnostics.launcher.rest.exceptions.ClientHostUnknownException;
 import com.dynatrace.diagnostics.launcher.rest.exceptions.ProfileNotFound;
 import com.dynatrace.diagnostics.launcher.rest.exceptions.ServerAlreadyRecordingSession;
 import com.dynatrace.diagnostics.launcher.rest.exceptions.ServerAuthenticationException;
@@ -17,7 +15,6 @@ import com.dynatrace.diagnostics.launcher.rest.exceptions.ServerAuthenticationRe
 import com.dynatrace.diagnostics.launcher.rest.exceptions.ServerConnectionFailedException;
 import com.dynatrace.diagnostics.launcher.rest.exceptions.ServerErrorUnknown;
 import com.dynatrace.diagnostics.launcher.rest.exceptions.ServerHostUnknownException;
-import com.dynatrace.diagnostics.server.service.data.CodeLinkLookupResponse;
 import com.dynatrace.diagnostics.server.service.data.TestRun;
 
 /**
