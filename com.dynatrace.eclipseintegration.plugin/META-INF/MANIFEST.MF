@@ -53,5 +53,6 @@ Bundle-ClassPath: .,
  lib/jboss-annotations-api_1.1_spec-1.0.1.Final.jar,
  lib/jcip-annotations-1.0.jar,
  lib/resteasy-jaxb-provider-3.0.11.Final.jar,
- lib/swing2swt.jar
+ lib/swing2swt.jar,
+ lib/codelink-wrapper-0.0.1.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

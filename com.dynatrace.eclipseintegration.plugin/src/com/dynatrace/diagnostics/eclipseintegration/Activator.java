@@ -6,7 +6,10 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import com.dynatrace.diagnostics.codelink.core.client.CodeLinkClientLauncher;
+import com.dynatrace.codelink.CodeLinkClient;
+import com.dynatrace.diagnostics.codelink.EclipseCodeLinkSettings;
+import com.dynatrace.diagnostics.codelink.EclipseDescriptor;
+import com.dynatrace.diagnostics.codelink.EclipseProjectDescriptor;
 import com.dynatrace.diagnostics.launcher.LauncherCallbacks;
 import com.dynatrace.diagnostics.launcher.rest.RESTService;
 
@@ -24,7 +27,7 @@ public class Activator extends AbstractUIPlugin {
 	public static final String PLUGIN_ID = "com.dynatrace.eclipseintegration.plugin"; //$NON-NLS-1$
 	private static Activator singleton;
 
-	private CodeLinkClientLauncher codeLinkLauncher;
+	private CodeLinkClient codeLinkClient;
 	private LauncherCallbacks launcherCallbacks;
 
 	private boolean debug = false;
@@ -38,7 +41,7 @@ public class Activator extends AbstractUIPlugin {
 		super.start(context);
 
 		RESTService restService = new RESTService();
-		codeLinkLauncher = new CodeLinkClientLauncher(restService);
+		codeLinkClient = new CodeLinkClient(new EclipseCodeLinkSettings(), new EclipseDescriptor(), new EclipseProjectDescriptor());
 		launcherCallbacks = new LauncherCallbacks(restService);
 
 		initPrefStore();
@@ -48,14 +51,14 @@ public class Activator extends AbstractUIPlugin {
 
 	@Override
 	public void stop(BundleContext context) throws Exception {
-		if (codeLinkLauncher != null) {
-			codeLinkLauncher.stop();
+		if (codeLinkClient != null) {
+			stopCodeLink();
 		}
 
 		launcherCallbacks.detach();
 		singleton = null;
 
-		codeLinkLauncher = null;
+		codeLinkClient = null;
 		launcherCallbacks = null;
 
 		super.stop(context);
@@ -69,11 +72,11 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 	public void startCodeLink() {
-		codeLinkLauncher.start();
+		codeLinkClient.startPolling(CodeLinkClient.DEFAULT_INTERVAL, CodeLinkClient.DEFAULT_UNIT);
 	}
 
 	public void stopCodeLink() {
-		codeLinkLauncher.stop();
+		codeLinkClient.stopPolling();
 	}
 
 	public LauncherCallbacks getLauncherCallbacks() {

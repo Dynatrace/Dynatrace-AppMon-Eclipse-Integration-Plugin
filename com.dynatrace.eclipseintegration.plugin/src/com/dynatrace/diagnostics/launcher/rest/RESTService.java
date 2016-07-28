@@ -7,8 +7,6 @@ import javax.ws.rs.client.ClientRequestFilter;
 import javax.ws.rs.core.Form;
 
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
-
-import com.dynatrace.diagnostics.codelink.core.client.Protocol.Version;
 import com.dynatrace.diagnostics.codelink.logging.LogHelper;
 import com.dynatrace.diagnostics.launcher.rest.exceptions.ClientConnectionFailedException;
 import com.dynatrace.diagnostics.launcher.rest.exceptions.ClientHostUnknownException;
@@ -32,7 +30,6 @@ import com.dynatrace.diagnostics.server.service.data.TestRun;
  */
 public class RESTService {
 
-	private final AppMonClient appMonClient;
 	private final AppMonServer appMonServer;
 
 	public RESTService() {
@@ -54,21 +51,7 @@ public class RESTService {
 			}
 		});
 
-		this.appMonClient = new AppMonClient(restEasy);
 		this.appMonServer = new AppMonServer(restEasy);
-	}
-
-	public CodeLinkLookupResponse codeLinkConnect(
-			long sessionId, String ideVersion, Version pluginVersion, String project, String path)
-			throws ClientConnectionFailedException, ClientHostUnknownException	{
-
-		return appMonClient.codeLinkConnect(sessionId, ideVersion, pluginVersion, project, path);
-	}
-
-	public void sendCodeLinkResponse(long sessionId, int responseCode)
-			throws ServerConnectionFailedException, ClientConnectionFailedException, ClientHostUnknownException,
-			ServerHostUnknownException {
-		appMonClient.sendCodeLinkResponse(sessionId, responseCode);
 	}
 
 	public String startSession(String profileName)

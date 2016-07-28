@@ -22,6 +22,7 @@
 	<classpathentry kind="lib" path="lib/httpclient-cache-4.5.2.jar"/>
 	<classpathentry kind="lib" path="lib/httpclient-win-4.5.2.jar"/>
 	<classpathentry kind="lib" path="lib/httpcore-4.4.4.jar"/>
+	<classpathentry kind="lib" path="lib/codelink-wrapper-0.0.1.jar"/>
 	<classpathentry kind="lib" path="lib/httpcore-ab-4.4.4.jar"/>
 	<classpathentry kind="lib" path="lib/httpcore-nio-4.4.4.jar"/>
 	<classpathentry kind="lib" path="lib/httpmime-4.5.2.jar"/>
