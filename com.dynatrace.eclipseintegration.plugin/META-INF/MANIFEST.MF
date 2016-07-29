@@ -54,5 +54,6 @@ Bundle-ClassPath: .,
  lib/jcip-annotations-1.0.jar,
  lib/resteasy-jaxb-provider-3.0.11.Final.jar,
  lib/swing2swt.jar,
- lib/codelink-wrapper-0.0.1.jar
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+ lib/codelink-wrapper-0.0.1.jar,
+ lib/server-rest-sdk-0.0.1.jar
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

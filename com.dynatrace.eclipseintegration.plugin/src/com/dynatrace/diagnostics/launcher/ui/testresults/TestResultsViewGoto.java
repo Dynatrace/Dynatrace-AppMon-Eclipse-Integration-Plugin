@@ -11,7 +11,7 @@ import org.eclipse.ui.PartInitException;
 
 import com.dynatrace.diagnostics.codelink.logging.LogHelper;
 import com.dynatrace.diagnostics.launcher.ui.util.GetWorkbench;
-import com.dynatrace.diagnostics.server.service.data.TestRun;
+import com.dynatrace.sdk.server.testautomation.models.TestRun;
 
 /**
  * @author Michal.Weyer

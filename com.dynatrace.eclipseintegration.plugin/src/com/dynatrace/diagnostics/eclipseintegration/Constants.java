@@ -4,13 +4,12 @@ import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.jface.preference.IPreferenceStore;
 
 /**
-  *
-  * @author michael.kumar
+ *
+ * @author michael.kumar
  */
 public class Constants {
 
 	public static final int DEFAULT_PORT = 30698;
-
 
 	/**
 	 * Property Dialog Constants
@@ -27,7 +26,7 @@ public class Constants {
 	public static final String IMG_TEST_OK = "img.test.ok"; //$NON-NLS-1$
 	public static final String IMG_TEST_FAILED = "img.test.failed"; //$NON-NLS-1$
 	public static final String IMG_TEST_VOLATILE = "img.test.volatile"; //$NON-NLS-1$
-	public static final String IMG_POPUP_ERROR =  "img.popup.error"; //$NON-NLS-1$
+	public static final String IMG_POPUP_ERROR = "img.popup.error"; //$NON-NLS-1$
 	public static final String IMG_POPUP_CLOSE = "img.popup.close"; //$NON-NLS-1$
 	public static final String IMG_WHERE_ICON = "img.dynatraceicon.where";
 
@@ -45,8 +44,6 @@ public class Constants {
 	public static final byte FOUND = 0;
 	public static final byte NOT_FOUND = 1;
 	public static final byte ERROR = -1;
-
-
 
 	// preferences dialog settings
 	public static final String DEFAULT_SERVER_HOST = "localhost"; //$NON-NLS-1$
@@ -68,12 +65,10 @@ public class Constants {
 	public static final String DEFAULT_AGENT_NAME = "eclipse"; //$NON-NLS-1$
 	public static final String DEFAULT_SERVER_PROFILE = "Monitoring"; //$NON-NLS-1$
 
-	public static final String[] WINDOWS_EXTENSIONS = new String[] {"*.dll"}; //$NON-NLS-1$
-	public static final String[] LINUX_EXTENSIONS = new String[] {"*.so"};
+	public static final String[] WINDOWS_EXTENSIONS = new String[] { "*.dll" }; //$NON-NLS-1$
+	public static final String[] LINUX_EXTENSIONS = new String[] { "*.so" };
 
-
-
-	//preference storage and launch profile configuration keys
+	// preference storage and launch profile configuration keys
 	public static final String PREF_AGENT_HOST = "dynatrace_agenthost"; //$NON-NLS-1$
 	public static final String PREF_COLLECTOR_HOST = "dynatrace_collector_host"; //$NON-NLS-1$
 	public static final String PREF_COLLECTOR_AGENT_PORT = "dynatrace_collector_agentport"; //$NON-NLS-1$
@@ -101,7 +96,6 @@ public class Constants {
 
 	public static final String DT_LAUNCH_GROUP = "com.dynatrace.run"; //$NON-NLS-1$
 	public static final String DT_LAUNCH_MODE = "dynatrace"; //$NON-NLS-1$
-
 
 	public static int getDefaultInt(IPreferenceStore prefStore, String preference, int defaultValue) {
 		int value = prefStore.getInt(preference);

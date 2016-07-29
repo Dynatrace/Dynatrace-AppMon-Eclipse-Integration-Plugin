@@ -11,13 +11,14 @@ import com.dynatrace.diagnostics.codelink.EclipseCodeLinkSettings;
 import com.dynatrace.diagnostics.codelink.EclipseDescriptor;
 import com.dynatrace.diagnostics.codelink.EclipseProjectDescriptor;
 import com.dynatrace.diagnostics.launcher.LauncherCallbacks;
-import com.dynatrace.diagnostics.launcher.rest.RESTService;
+import com.dynatrace.sdk.server.DynatraceClient;
 
 /**
- * Responsible for: <ul>
- *     <li>plugin lifecycle</li>
- *     <li>gluing functionality to Eclipse callbacks</li>
- *     <li>gluing functionality between submodules</li>
+ * Responsible for:
+ * <ul>
+ * <li>plugin lifecycle</li>
+ * <li>gluing functionality to Eclipse callbacks</li>
+ * <li>gluing functionality between submodules</li>
  * </ul>
  *
  * @author Michal.Weyer (refactoring after original author)
@@ -32,7 +33,6 @@ public class Activator extends AbstractUIPlugin {
 
 	private boolean debug = false;
 
-
 	public Activator() {
 	}
 
@@ -40,9 +40,10 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 
-		RESTService restService = new RESTService();
-		codeLinkClient = new CodeLinkClient(new EclipseCodeLinkSettings(), new EclipseDescriptor(), new EclipseProjectDescriptor());
-		launcherCallbacks = new LauncherCallbacks(restService);
+		DynatraceClient client = new DynatraceClient(new EclipseServerConfiguration());
+		codeLinkClient = new CodeLinkClient(new EclipseCodeLinkSettings(), new EclipseDescriptor(),
+				new EclipseProjectDescriptor());
+		launcherCallbacks = new LauncherCallbacks(client);
 
 		initPrefStore();
 		launcherCallbacks.attach();
@@ -104,8 +105,6 @@ public class Activator extends AbstractUIPlugin {
 		reg.put(Constants.IMG_WHERE_ICON, getImageDescriptor("/img/run_with_appmon_configuration_point.png"));
 	}
 
-
-
 	private void initPrefStore() {
 		IPreferenceStore prefStore = getPreferenceStore();
 		prefStore.setDefault(Constants.PROP_PROJECT_DEFAULT_MARKER_VALUE, true);
@@ -120,8 +119,8 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 	/**
-	 * Returns an image descriptor for the image file at the given
-	 * plug-in relative path
+	 * Returns an image descriptor for the image file at the given plug-in
+	 * relative path
 	 */
 	private static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);

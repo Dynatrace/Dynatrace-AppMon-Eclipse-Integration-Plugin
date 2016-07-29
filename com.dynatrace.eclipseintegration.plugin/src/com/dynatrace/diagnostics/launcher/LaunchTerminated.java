@@ -22,14 +22,11 @@ import com.dynatrace.diagnostics.eclipseintegration.Constants;
 import com.dynatrace.diagnostics.eclipseintegration.StringResources;
 import com.dynatrace.diagnostics.launcher.functionality.SessionRecorder;
 import com.dynatrace.diagnostics.launcher.functionality.TestRunRecorder;
-import com.dynatrace.diagnostics.launcher.rest.exceptions.ServerAuthenticationException;
-import com.dynatrace.diagnostics.launcher.rest.exceptions.ServerAuthenticationRequiresSSLException;
-import com.dynatrace.diagnostics.launcher.rest.exceptions.ServerConnectionFailedException;
-import com.dynatrace.diagnostics.launcher.rest.exceptions.ServerErrorUnknown;
-import com.dynatrace.diagnostics.launcher.rest.exceptions.ServerHostUnknownException;
 import com.dynatrace.diagnostics.launcher.ui.errorpopup.TransientErrorPopupManager;
 import com.dynatrace.diagnostics.launcher.ui.testresults.TestResultsViewGoto;
-import com.dynatrace.diagnostics.server.service.data.TestRun;
+import com.dynatrace.sdk.server.exceptions.ServerConnectionException;
+import com.dynatrace.sdk.server.exceptions.ServerResponseException;
+import com.dynatrace.sdk.server.testautomation.models.TestRun;
 
 /**
  * @author Michal.Weyer
@@ -41,7 +38,7 @@ class LaunchTerminated {
 	private final TestRunRecorder testRunRecorder;
 	private final Map<WeakReference<ILaunch>, Integer> JUnitLaunch_testCount = new ConcurrentHashMap<WeakReference<ILaunch>, Integer>();
 
-	LaunchTerminated( SessionRecorder sessionRecorder, TestRunRecorder testRunRecorder) {
+	LaunchTerminated(SessionRecorder sessionRecorder, TestRunRecorder testRunRecorder) {
 		this.sessionRecorder = sessionRecorder;
 		this.testRunRecorder = testRunRecorder;
 	}
@@ -53,8 +50,6 @@ class LaunchTerminated {
 	void setTestCount(ILaunch launch, int totalCount) {
 		JUnitLaunch_testCount.put(new WeakReference<ILaunch>(launch), totalCount);
 	}
-
-
 
 	private final class WrapUpLaunch extends Job {
 
@@ -79,11 +74,11 @@ class LaunchTerminated {
 				monitor.worked(SESSION_RETRIEVAL_WORK_AMT - 1);
 
 				final List<TestRun> finishedTestRuns = new ArrayList<TestRun>();
-				finishedTestRuns.addAll(testRunRecorder.finishTestRuns(launches, launchTestCounts, new TestRetrieverMonitor(new SubProgressMonitor(monitor, 70))));
+				finishedTestRuns.addAll(testRunRecorder.finishTestRuns(launches, launchTestCounts,
+						new TestRetrieverMonitor(new SubProgressMonitor(monitor, 70))));
 				if (finishedTestRuns.isEmpty()) {
 					return Status.CANCEL_STATUS;
 				}
-
 
 				Display.getDefault().syncExec(new Runnable() {
 					@Override
@@ -96,34 +91,25 @@ class LaunchTerminated {
 
 						} catch (PartInitException e) {
 							LogHelper.logError(
-									"Failed to show the test results view after finishing test run [ErrorLocation-41]", e);
+									"Failed to show the test results view after finishing test run [ErrorLocation-41]",
+									e);
 						}
 					}
 				});
 				return Status.OK_STATUS;
 
-
 			} catch (InterruptedException e) {
-				TransientErrorPopupManager.logAndShowError("Retrieving Dynatrace JUnit test runs results interrupted, results won't be retrieved [ErrorLocation-42]", e);
-				return Status.CANCEL_STATUS;
-			} catch (ServerHostUnknownException e) {
+				TransientErrorPopupManager.logAndShowError(
+						"Retrieving Dynatrace JUnit test runs results interrupted, results won't be retrieved [ErrorLocation-42]",
+						e);
+			} catch (ServerConnectionException e) {
 				logDontPopup(e);
-				return Status.CANCEL_STATUS;
-			} catch (ServerConnectionFailedException e) {
+			} catch (ServerResponseException e) {
 				logDontPopup(e);
-				return Status.CANCEL_STATUS;
-			} catch (ServerErrorUnknown e) {
-				logDontPopup(e);
-				return Status.CANCEL_STATUS;
-			} catch (ServerAuthenticationException e) {
-				logDontPopup(e);
-				return Status.CANCEL_STATUS;
-			} catch (ServerAuthenticationRequiresSSLException e) {
-				logDontPopup(e);
-				return Status.CANCEL_STATUS;
 			} finally {
 				monitor.done();
 			}
+			return Status.CANCEL_STATUS;
 		}
 
 		@Override
@@ -136,7 +122,6 @@ class LaunchTerminated {
 			LogHelper.logError("Error during Dynatrace launch complete handling [ErrorLocation-43]", e);
 			// no popup since assuming this will have occurred at launch start
 		}
-
 
 		private final class TestRetrieverMonitor implements TestRunRecorder.ProgressMonitor {
 			private final SubProgressMonitor subMonitor;

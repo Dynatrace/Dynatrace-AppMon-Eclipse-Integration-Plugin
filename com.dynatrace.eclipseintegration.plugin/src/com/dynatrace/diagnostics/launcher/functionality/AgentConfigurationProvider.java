@@ -23,9 +23,11 @@ public class AgentConfigurationProvider {
 	private static final String DEBUG_SWITCH = "-Xdebug";
 
 	/**
-	 * is only needed for JVMPI injection, i.e. for java 1.4. and currently unused
+	 * is only needed for JVMPI injection, i.e. for java 1.4. and currently
+	 * unused
 	 *
-	 * @param env the current environment
+	 * @param env
+	 *            the current environment
 	 * @return the environment with added/updated path variable
 	 */
 	public String[] getPathExtension(String[] env) {
@@ -33,19 +35,26 @@ public class AgentConfigurationProvider {
 	}
 
 	/**
-	 * constructs the agent parameters and appends them to the current vm parameters
+	 * constructs the agent parameters and appends them to the current vm
+	 * parameters
 	 *
-	 * @param configuration the current launch configuration which can be used to override the global defaults.
-	 * @param quotePath if the agent path should be quoted or not. quoting the path (to escape spaces in the path) is unnecessary
-	 *        if the launcher
-	 *        accepts the vmargs as array but is needed if the vmargs are returned as a single string.
+	 * @param configuration
+	 *            the current launch configuration which can be used to override
+	 *            the global defaults.
+	 * @param quotePath
+	 *            if the agent path should be quoted or not. quoting the path
+	 *            (to escape spaces in the path) is unnecessary if the launcher
+	 *            accepts the vmargs as array but is needed if the vmargs are
+	 *            returned as a single string.
 	 * @return vm parameters with agent
 	 */
 	private String getAgentString(ILaunchConfiguration configuration, boolean quotePath) {
 		IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
 
-		String serverHost = Constants.getDefaultString(prefStore, Constants.PREF_COLLECTOR_HOST, Constants.DEFAULT_COLLECTOR_HOST);
-		int port = Constants.getDefaultInt(prefStore, Constants.PREF_COLLECTOR_AGENT_PORT, Constants.DEFAULT_COLLECTOR_LISTEN_TO_AGENTS_PORT);
+		String serverHost = Constants.getDefaultString(prefStore, Constants.PREF_COLLECTOR_HOST,
+				Constants.DEFAULT_COLLECTOR_HOST);
+		int port = Constants.getDefaultInt(prefStore, Constants.PREF_COLLECTOR_AGENT_PORT,
+				Constants.DEFAULT_COLLECTOR_LISTEN_TO_AGENTS_PORT);
 		String agentLibraryPath = Constants.getDefaultString(prefStore, Constants.PREF_AGENT_PATH, "");
 
 		String confAgentName = "";
@@ -55,11 +64,14 @@ public class AgentConfigurationProvider {
 				confAgentName = configuration.getAttribute(Constants.PREF_AGENT_NAME, "");
 				confAdditionalParameters = configuration.getAttribute(Constants.PREF_AGENT_PARAMS, "");
 			} catch (CoreException e) {
-				throw new IllegalStateException("Exception when retrieving Dynatrace launch configuration [ErrorLocation-1]");
+				throw new IllegalStateException(
+						"Exception when retrieving Dynatrace launch configuration [ErrorLocation-1]");
 			}
 		}
-		String agentName = isNotEmpty(confAgentName) ? confAgentName : Constants.getDefaultString(prefStore, Constants.PREF_AGENT_NAME, Constants.DEFAULT_AGENT_NAME);
-		String params = isNotEmpty(confAdditionalParameters) ? confAdditionalParameters : Constants.getDefaultString(prefStore, Constants.PREF_AGENT_PARAMS, "");
+		String agentName = isNotEmpty(confAgentName) ? confAgentName
+				: Constants.getDefaultString(prefStore, Constants.PREF_AGENT_NAME, Constants.DEFAULT_AGENT_NAME);
+		String params = isNotEmpty(confAdditionalParameters) ? confAdditionalParameters
+				: Constants.getDefaultString(prefStore, Constants.PREF_AGENT_PARAMS, "");
 
 		if (port == 0 || serverHost.isEmpty() || agentLibraryPath.isEmpty()) {
 			throw new IllegalArgumentException("Agent is not configured correctly! [ErrorLocation-2]");
@@ -93,9 +105,11 @@ public class AgentConfigurationProvider {
 	}
 
 	/**
-	 * cleans the current argument list from problematic VM parameters like debug switches, gc parameters etc.
+	 * cleans the current argument list from problematic VM parameters like
+	 * debug switches, gc parameters etc.
 	 *
-	 * @param arguments the current arguments
+	 * @param arguments
+	 *            the current arguments
 	 * @return cleaned argument string
 	 */
 	private String sanitizeArguments(String arguments) {
@@ -104,9 +118,11 @@ public class AgentConfigurationProvider {
 	}
 
 	/**
-	 * cleans the current argument list from problematic VM parameters like debug switches, gc parameters etc.
+	 * cleans the current argument list from problematic VM parameters like
+	 * debug switches, gc parameters etc.
 	 *
-	 * @param arguments the current arguments
+	 * @param arguments
+	 *            the current arguments
 	 * @return cleaned argument string
 	 */
 	private String[] sanitizeArguments(String[] arguments) {

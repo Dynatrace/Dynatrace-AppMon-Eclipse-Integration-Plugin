@@ -8,11 +8,9 @@ public final class StringResources extends NLS {
 		NLS.initializeMessages("plugin", StringResources.class);
 	}
 
-
 	private StringResources() {
 		// Do not instantiate
 	}
-
 
 	public static String javaproject_global_title;
 	public static String preferences_global_slogan_build_optimize_test;
@@ -44,7 +42,6 @@ public final class StringResources extends NLS {
 
 	public static String link_url_no_testruns;
 	public static String link_url_error_code;
-
 
 	public static String helpURLText;
 	public static String javaproject_properties_page1_enableChk;
@@ -84,11 +81,8 @@ public final class StringResources extends NLS {
 	public static String launchtab_message;
 	public static String launchtab_name;
 
-
-
-
-	//these strings are used directly in the xml configuration of the plugin,
-	//they are only referenced here to avoid unused message warnings.
+	// these strings are used directly in the xml configuration of the plugin,
+	// they are only referenced here to avoid unused message warnings.
 	public static String launchtabgroup_java;
 	public static String launchtabgroup_osgi;
 	public static String launchtabgroup_eclipse;
@@ -119,4 +113,3 @@ public final class StringResources extends NLS {
 	public static String testResultsView_noResults;
 	public static String testResultsView_moreInformation;
 }
-

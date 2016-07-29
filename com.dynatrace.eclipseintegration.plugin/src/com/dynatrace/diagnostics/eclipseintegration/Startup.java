@@ -8,7 +8,8 @@ import org.eclipse.ui.IStartup;
  */
 public class Startup implements IStartup {
 
-	/** Hook called when eclipse started up
+	/**
+	 * Hook called when eclipse started up
 	 *
 	 * @see org.eclipse.ui.IStartup#earlyStartup()
 	 * @author markus.poechtrager
