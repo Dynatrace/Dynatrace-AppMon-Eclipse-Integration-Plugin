@@ -98,13 +98,13 @@ public class EclipseIntegrationPreferencePage extends PreferencePage implements 
 		}
 		configuration.saveConfiguration();
 
-		try {
-			Activator activator = Activator.getDefault();
-			activator.stopCodeLink();
-			activator.startCodeLink();
-		} catch (Exception e) {
-			throw new RuntimeException("Exception when restarting CodeLink background thread [ErrorLocation-30]", e);
-		}
+//		try {
+//			Activator activator = Activator.getDefault();
+//			activator.stopCodeLink();
+//			activator.startCodeLink();
+//		} catch (Exception e) {
+//			throw new RuntimeException("Exception when restarting CodeLink background thread [ErrorLocation-30]", e);
+//		}
 
 		return super.performOk();
 	}

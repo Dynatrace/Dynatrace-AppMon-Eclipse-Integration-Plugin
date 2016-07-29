@@ -14,7 +14,7 @@ import org.eclipse.jdt.core.search.IJavaSearchConstants;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.ui.PlatformUI;
 
-import com.dynatrace.diagnostics.codelink.core.client.CallDescriptorInterface;
+import com.dynatrace.codelink.CodeLinkLookupResponse;
 import com.dynatrace.diagnostics.codelink.core.searchengine.CodeLinkSearchEngine;
 import com.dynatrace.diagnostics.codelink.logging.LogHelper;
 import com.dynatrace.diagnostics.codelink.ui.utils.UIUtils;
@@ -30,7 +30,7 @@ public class Jumper {
 	  * @return true if successful, otherwise false
 	  * @author markus.poechtrager
 	 */
-	public void jumpTo(final CallDescriptorInterface descr) throws NoSuchElementException {
+	public void jumpTo(final CodeLinkLookupResponse descr) throws NoSuchElementException {
 		if (descr == null || descr.getClassName() == null || descr.getClassName().length() == 0) {
 			return;
 		}
@@ -81,7 +81,7 @@ public class Jumper {
 	  * @throws InterruptedException
 	  * @author markus.poechtrager
 	 */
-	private static void internalOpenInEclipse(final CallDescriptorInterface descr,	IProgressMonitor monitor)
+	private static void internalOpenInEclipse(final CodeLinkLookupResponse descr,	IProgressMonitor monitor)
 	throws CoreException, NoSuchElementException, InvocationTargetException, InterruptedException {
 
 		// search string
@@ -156,7 +156,7 @@ public class Jumper {
 				searchFor = IJavaSearchConstants.METHOD;
 			}
 
-			String[] args = descr.getMethodParameters();
+			String[] args = descr.getArguments();
 
 			if (args != null && args.length > 0) {
 				// add method/constructor parameters
