@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!--
+	Adds child repo (new plugin version repo) to composite p2 repository.
+	RUN ONLY FROM MAVEN, NOT MANUALLY!
+
+	Author: krzysztof.necel
+	
+	Based on:
+		http://www.lorenzobettini.it/2015/01/creating-p2-composite-repositories-during-the-build/
+		https://github.com/LorenzoBettini/p2composite-example
+		
+	Properties (that must be passed from the pom.xml file):
+		*site.directory: Main composite repository location (to which we want to add new child repo)
+			
+		*site.label: the main label that will appear in the composite site (and that will be recorded in the “Eclipse available sites”).
+			The final label will be “${site.label} All Versions” for the main site and “${site.label} <major.minor>” for the nested composite sites.
+			
+		*project.build.directory: the location of the p2 repository created during the build (usually of the shape <project.id>/target/repository)
+		
+		*unqualifiedVersion: the version without qualifier (e.g., 1.1.0)
+		
+		*buildQualifier: the replaced qualifier in the built version
+-->
+<project name="project">
+
+    <target name="getMajorMinorVersion">
+        <script language="javascript">
+            <![CDATA[
+
+	                // getting the value
+	                buildnumber = project.getProperty("unqualifiedVersion");
+	                index = buildnumber.lastIndexOf(".");
+	                counter = buildnumber.substring(0, index);
+	    			project.setProperty("majorMinorVersion",counter);
+
+	            ]]>
+        </script>
+    </target>
+
+    <target name="compute.child.repository.data" depends="getMajorMinorVersion">
+        <property name="full.version" value="${unqualifiedVersion}.${buildQualifier}" />
+
+		<property name="main.site.composite.name" value="${site.label}" />
+        <property name="site.composite.name" value="${site.label} ${majorMinorVersion}" />
+
+        <property name="main.composite.repository.directory" location="${site.directory}" />
+        <property name="composite.repository.directory" value="${main.composite.repository.directory}/${majorMinorVersion}" />
+		
+        <property name="child.repository" value="${full.version}" />
+        <property name="child.repository.directory" value="${composite.repository.directory}/${child.repository}/" />
+    </target>
+
+    <target name="p2.composite.add" depends="compute.child.repository.data">
+        <property name="source.repository" location="${project.build.directory}/repository"/>
+
+        <echo message="Source repository path: ${source.repository}" />
+
+        <mkdir dir="${child.repository.directory}"/>
+        <copy todir="${child.repository.directory}" overwrite="true">
+            <fileset dir="${source.repository}" />
+        </copy>
+
+        <add.composite.repository.internal
+			composite.repository.location="${composite.repository.directory}"
+			composite.repository.name="${site.composite.name}"
+			composite.repository.child="${child.repository}"
+		/>
+
+        <add.composite.repository.internal
+			composite.repository.location="${main.composite.repository.directory}"
+			composite.repository.name="${main.site.composite.name}"
+			composite.repository.child="${majorMinorVersion}"
+		/>
+
+    </target>
+
+    <!-- = = = = = = = = = = = = = = = = =
+          macrodef: add.composite.repository.internal          
+         = = = = = = = = = = = = = = = = = -->
+    <macrodef name="add.composite.repository.internal">
+        <attribute name="composite.repository.location" />
+        <attribute name="composite.repository.name" />
+        <attribute name="composite.repository.child" />
+        <sequential>
+
+            <echo message=" " />
+            <echo message="Composite repository       : @{composite.repository.location}" />
+            <echo message="Composite name             : @{composite.repository.name}" />
+            <echo message="Adding child repository    : @{composite.repository.child}" />
+
+            <p2.composite.repository>
+                <repository compressed="false" location="@{composite.repository.location}" name="@{composite.repository.name}" />
+                <add>
+                    <repository location="@{composite.repository.child}" />
+                </add>
+            </p2.composite.repository>
+
+            <echo file="@{composite.repository.location}/p2.index">version=1
+metadata.repository.factory.order=compositeContent.xml,\!
+artifact.repository.factory.order=compositeArtifacts.xml,\!
+</echo>
+
+        </sequential>
+    </macrodef>
+
+</project>

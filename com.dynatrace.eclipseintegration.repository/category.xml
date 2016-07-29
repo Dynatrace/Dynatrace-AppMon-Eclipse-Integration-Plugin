@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	<feature url="features/com.dynatrace.eclipseintegration_6.5.4.qualifier.jar"
+			 id="com.dynatrace.eclipseintegration"
+			 version="6.5.4.qualifier">
+      <category name="Dynatrace"/>
+   </feature>
+	<category-def name="Dynatrace" label="Dynatrace">
+	</category-def>
+</site>
