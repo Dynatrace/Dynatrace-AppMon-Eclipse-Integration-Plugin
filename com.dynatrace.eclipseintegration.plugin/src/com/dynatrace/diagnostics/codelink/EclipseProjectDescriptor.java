@@ -14,7 +14,7 @@ public class EclipseProjectDescriptor implements ProjectDescriptor {
 
 	@Override
 	public String getProjectName() {
-		if(UIUtils.getActiveProject()!=null) {
+		if (UIUtils.getActiveProject() != null) {
 			return UIUtils.getActiveProject().getName();
 		}
 		return null;
@@ -22,7 +22,7 @@ public class EclipseProjectDescriptor implements ProjectDescriptor {
 
 	@Override
 	public String getProjectPath() {
-		if(UIUtils.getActiveProject()!=null) {
+		if (UIUtils.getActiveProject() != null) {
 			return UIUtils.getActiveProject().getFullPath().toOSString();
 		}
 		return null;
