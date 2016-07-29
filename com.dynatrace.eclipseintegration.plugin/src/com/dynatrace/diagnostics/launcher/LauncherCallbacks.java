@@ -19,7 +19,7 @@ import org.eclipse.ui.PlatformUI;
 import com.dynatrace.diagnostics.codelink.logging.LogHelper;
 import com.dynatrace.diagnostics.launcher.functionality.SessionRecorder;
 import com.dynatrace.diagnostics.launcher.functionality.TestRunRecorder;
-import com.dynatrace.diagnostics.launcher.rest.RESTService;
+import com.dynatrace.sdk.server.DynatraceClient;
 
 /**
  * @author Michal.Weyer
@@ -35,10 +35,9 @@ public class LauncherCallbacks {
 	private IWorkbenchListener workbenchListener;
 	private final TestRunListener testRunListener;
 
-
-	public LauncherCallbacks(RESTService restService) {
-		this.sessionRecorder = new SessionRecorder(restService);
-		TestRunRecorder testRunRecorder = new TestRunRecorder(restService);
+	public LauncherCallbacks(DynatraceClient client) {
+		this.sessionRecorder = new SessionRecorder(client);
+		TestRunRecorder testRunRecorder = new TestRunRecorder(client);
 
 		launchNew = new LaunchNew(sessionRecorder, testRunRecorder);
 		launchTerminated = new LaunchTerminated(sessionRecorder, testRunRecorder);
@@ -73,11 +72,8 @@ public class LauncherCallbacks {
 		JUnitCore.removeTestRunListener(testRunListener);
 	}
 
-
-
-	public ILaunchConfiguration onNewLaunch(
-			Class<? extends LaunchConfigurationDelegate> launchDelegateClass, ILaunchConfiguration configuration, ILaunch launch)
-			throws CoreException {
+	public ILaunchConfiguration onNewLaunch(Class<? extends LaunchConfigurationDelegate> launchDelegateClass,
+			ILaunchConfiguration configuration, ILaunch launch) throws CoreException {
 
 		ILaunchConfigurationWorkingCopy workingCopy = configuration.getWorkingCopy();
 
@@ -103,7 +99,8 @@ public class LauncherCallbacks {
 				try {
 					sessionRecorder.stopRecordingAll();
 				} catch (Exception e) {
-					LogHelper.logError("Exception when stopping session recording on workbench shutdown [ErrorLocation-74]", e);
+					LogHelper.logError(
+							"Exception when stopping session recording on workbench shutdown [ErrorLocation-74]", e);
 				}
 			}
 		};

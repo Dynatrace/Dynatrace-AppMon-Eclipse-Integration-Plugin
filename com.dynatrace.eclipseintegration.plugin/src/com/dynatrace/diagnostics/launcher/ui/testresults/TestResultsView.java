@@ -39,17 +39,14 @@ import com.dynatrace.diagnostics.codelink.logging.LogHelper;
 import com.dynatrace.diagnostics.eclipseintegration.Activator;
 import com.dynatrace.diagnostics.eclipseintegration.Constants;
 import com.dynatrace.diagnostics.eclipseintegration.StringResources;
-import com.dynatrace.diagnostics.server.service.data.Measure;
-import com.dynatrace.diagnostics.server.service.data.TestResult;
-import com.dynatrace.diagnostics.server.service.data.TestRun;
+import com.dynatrace.sdk.server.testautomation.models.TestMeasure;
+import com.dynatrace.sdk.server.testautomation.models.TestResult;
+import com.dynatrace.sdk.server.testautomation.models.TestRun;
+import com.dynatrace.sdk.server.testautomation.models.TestStatus;
 
 public class TestResultsView extends ViewPart {
 	public TestResultsView() {
 	}
-
-	private static final String TEST_STATUS_FAILED = "failed";
-
-	private static final String TEST_STATUS_PASSED = "passed";
 
 	static final String VIEW_ID = "com.dynatrace.diagnostics.testruns.view";
 
@@ -175,7 +172,6 @@ public class TestResultsView extends ViewPart {
 		return col;
 	}
 
-
 	@Override
 	public void setFocus() {
 
@@ -186,20 +182,20 @@ public class TestResultsView extends ViewPart {
 			kid.dispose();
 		}
 		for (TestRun testRun : finishedTestRuns) {
-			for (TestResult result : testRun.testResult) {
+			for (TestResult result : testRun.getTestResults()) {
 				CLabel testNameLabel = new CLabel(contentComposite, SWT.NONE);
 				testNameLabel.setFont(JFaceResources.getFontRegistry().getBold(JFaceResources.DEFAULT_FONT));
 				Image image;
-				if (TEST_STATUS_PASSED.equalsIgnoreCase(result.status)) {
+				if (result.getStatus() == TestStatus.PASSED) {
 					image = Activator.getDefault().getImageRegistry().get(Constants.IMG_TEST_OK);
-				} else if (TEST_STATUS_FAILED.equalsIgnoreCase(result.status)) {
+				} else if (result.getStatus() == TestStatus.FAILED) {
 					image = Activator.getDefault().getImageRegistry().get(Constants.IMG_TEST_FAILED);
 				} else {
 					image = Activator.getDefault().getImageRegistry().get(Constants.IMG_TEST_VOLATILE);
 				}
 				testNameLabel.setImage(image);
 				final ToolTip tip = new ToolTip(testNameLabel.getShell(), SWT.ON_TOP | SWT.TOOL);
-				tip.setMessage(StringResources.testResultsView_testStatus + ": " + result.status);
+				tip.setMessage(StringResources.testResultsView_testStatus + ": " + result.getStatus());
 				testNameLabel.setText(testNameLabelOf(result));
 				testNameLabel.addListener(SWT.MouseHover, new Listener() {
 
@@ -224,12 +220,12 @@ public class TestResultsView extends ViewPart {
 				});
 				TableViewer dataTable = createTestResultTable();
 				List<TestRunResultMeasureRow> rows = new ArrayList<TestRunResultMeasureRow>();
-				for (Measure measure : result.measures) {
+				for (TestMeasure measure : result.getMeasures()) {
 					TestRunResultMeasureRow row = new TestRunResultMeasureRow();
-					row.metricGroup = measure.metricGroup;
-					row.metricName = measure.name;
-					row.unit = measure.unit;
-					row.value = String.valueOf(measure.value);
+					row.metricGroup = measure.getMetricGroup();
+					row.metricName = measure.getName();
+					row.unit = measure.getUnit();
+					row.value = String.valueOf(measure.getValue());
 					rows.add(row);
 				}
 				dataTable.setInput(rows);
@@ -246,9 +242,9 @@ public class TestResultsView extends ViewPart {
 	}
 
 	private String testNameLabelOf(TestResult result) {
-		if (result.pckg == null) {
-			return result.name;
+		if (result.getPackageName() == null) {
+			return result.getName();
 		}
-		return result.pckg + "." + result.name;
+		return result.getPackageName() + "." + result.getName();
 	}
 }

@@ -12,8 +12,8 @@ import com.dynatrace.diagnostics.launcher.eclipsedelegates.DynatraceJunitPluginL
 
 public class JUnitLaunchCheck {
 
-
-	private static final List<Class<? extends JUnitLaunchConfigurationDelegate>> JUNIT_LAUNCH_CLASSES = asList(DynatraceJunitLaunchDelegate.class, DynatraceJunitPluginLaunchDelegate.class);
+	private static final List<Class<? extends JUnitLaunchConfigurationDelegate>> JUNIT_LAUNCH_CLASSES = asList(
+			DynatraceJunitLaunchDelegate.class, DynatraceJunitPluginLaunchDelegate.class);
 
 	@SuppressWarnings({ "unchecked", "SuspiciousMethodCalls" })
 	public static boolean isJUnitLaunch(Class<? extends LaunchConfigurationDelegate> launchDelegateClass) {
