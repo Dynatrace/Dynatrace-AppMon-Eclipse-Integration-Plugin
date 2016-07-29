@@ -1,7 +1,7 @@
 <img src="/img/logo/eclipse.png" width="300" />
 
 
-# Dynatrace Eclipse Integration Plugin
+# Dynatrace Eclipse Integration Plugin [![Build Status](https://travis-ci.org/Dynatrace/Dynatrace-Eclipse-Integration-Plugin.svg?branch=master)](https://travis-ci.org/Dynatrace/Dynatrace-Eclipse-Integration-Plugin) 
 
 Download Latest Release Candidate: https://github.com/Dynatrace/Dynatrace-Eclipse-Integration-Plugin/releases/download/6.3.4/Dynatrace_Eclipse_Integration_6.3.4.2020.zip
 ([Manual Installation](#manual))
