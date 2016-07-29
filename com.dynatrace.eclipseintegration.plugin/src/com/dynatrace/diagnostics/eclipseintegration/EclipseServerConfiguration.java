@@ -13,7 +13,6 @@ import com.dynatrace.sdk.server.ServerConfiguration;
 public class EclipseServerConfiguration implements ServerConfiguration {
 
 	@Override
-
 	public String getPassword() {
 		ISecurePreferences preferenceStoreSecure = SecurePreferencesFactory.getDefault();
 		try {
