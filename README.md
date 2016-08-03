@@ -15,8 +15,6 @@ The Dynatrace Eclipse Integration Plugin enable you to:
 
 * [Installation](#installation)  
  * [Prerequisites](#prerequisites)  
- * ~~[From the Eclipse Repository](#repository)~~ (temporarily unavailable)
- * [Manual Installation](#manual)
 * [Configuration](#configuration)
  * [Global Settings](#global)
  * [Run Configurations](#run_configurations)
@@ -41,29 +39,6 @@ The Dynatrace Eclipse Integration Plugin enable you to:
 * Eclipse Version: Juno, Kepler, Luna, Mars
 
 Find further information in the [Dynatrace community](https://community.dynatrace.com/community/display/DL/Dynatrace+Eclipse+Integration+Plugin).
-
-<a name="repository"/>
-### ~~From the Eclipse Repository~~
-
-Please [install manually](#manual). The latest version not yet available on the Eclipse Repository. We are sorry for the inconvenience.
-
-* ~~in Eclipse, click on "Help" / "Install New Software..."~~
-
-~~![install new software](/img/conf/install_new_software.png)~~
-* ~~click on Add... and enter the repository URL: http://www.dynatrace.com/eclipseintegration~~
-
-![add repository](/img/conf/add_repository.png)
-
-* ~~select the plugin and click on Next~~
-
-![select plugin](/img/conf/install_local.png)
-* ~~accept the license agreement~~
-* ~~restart Eclipse when prompted~~
-
-<a name="manual"/>
-### Manual Installation
-
-The process is the same as the manual installation (see below). 
 
 * Download the [latest plugin](https://github.com/Dynatrace/Dynatrace-Eclipse-Integration-Plugin/releases/download/6.3.4/Dynatrace_Eclipse_Integration_6.3.4.2020.zip)
 * unzip the archive
