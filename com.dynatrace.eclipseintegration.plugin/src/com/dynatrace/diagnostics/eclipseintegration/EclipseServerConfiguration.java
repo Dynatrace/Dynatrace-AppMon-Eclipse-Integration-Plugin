@@ -55,9 +55,9 @@ public class EclipseServerConfiguration implements ServerConfiguration {
 	@Override
 	public int getTimeout() {
 		// this is a client connection timeout. We don't have any user dependent
-		// settings for that, thus we hard-code
-		// a reasonable value of 10 seconds.
-		return 10000;
+		// settings for that, thus we hard-code a 0, which is infinite timeout
+		// closing session can actually take a long time
+		return 0;
 	}
 
 	@Override
