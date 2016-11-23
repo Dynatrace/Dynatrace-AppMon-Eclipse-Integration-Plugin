@@ -77,3 +77,7 @@ Post any problems, questions or suggestions to the Dynatrace Community's [Applic
 
 ##### Browse REST request used by the plugin
 > REST requests are written to the Eclipse log and visible in the Error Log view.
+
+##### AppMon configuration: enable the Java Tests sensor pack placed on the eclipse agent tier 
+
+otherwise no PurePaths (and test data) will be captured for your tests, see https://answers.dynatrace.com/questions/165503/eclipse-plugin-no-test-results-available.html
