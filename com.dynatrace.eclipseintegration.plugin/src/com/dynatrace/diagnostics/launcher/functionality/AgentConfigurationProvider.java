@@ -4,11 +4,14 @@ import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.jface.preference.IPreferenceStore;
 
+import com.dynatrace.diagnostics.codelink.logging.LogHelper;
 import com.dynatrace.diagnostics.eclipseintegration.Activator;
 import com.dynatrace.diagnostics.eclipseintegration.Constants;
 
@@ -112,19 +115,6 @@ public class AgentConfigurationProvider {
 	 *            the current arguments
 	 * @return cleaned argument string
 	 */
-	private String sanitizeArguments(String arguments) {
-		arguments = arguments.replace(DEBUG_SWITCH, "");
-		return arguments;
-	}
-
-	/**
-	 * cleans the current argument list from problematic VM parameters like
-	 * debug switches, gc parameters etc.
-	 *
-	 * @param arguments
-	 *            the current arguments
-	 * @return cleaned argument string
-	 */
 	private String[] sanitizeArguments(String[] arguments) {
 		List<String> sanitized = new ArrayList<String>();
 		for (String arg : arguments) {
@@ -136,9 +126,27 @@ public class AgentConfigurationProvider {
 	}
 
 	public String getVMArgumentsWithAgent(String vmArgs, ILaunchConfiguration configuration) {
-		String sanitizedArguments = sanitizeArguments(vmArgs);
-		sanitizedArguments += " " + getAgentString(configuration, true);
-		return sanitizedArguments;
+
+		String modifiedVMArgs = vmArgs.replace(DEBUG_SWITCH, "");
+
+		if (modifiedVMArgs.toLowerCase().contains("-agentpath")) {
+			int agentPathStart = modifiedVMArgs.indexOf("-agentpath");
+			int agentPathEnd = modifiedVMArgs.length();
+			Matcher matcher = Pattern.compile("\\s").matcher(vmArgs.substring(agentPathStart));
+			if (matcher.find()) {
+				agentPathEnd = matcher.start() + 1;
+			}
+
+			LogHelper.logError("Agent path specified in test configuration, "
+					+ "will be overiden by run-as-dynatrace-test plugin! [found:"
+					+ modifiedVMArgs.substring(agentPathStart, agentPathEnd));
+			modifiedVMArgs
+				= modifiedVMArgs.substring(0, agentPathStart)
+				  + modifiedVMArgs.substring(agentPathEnd);
+		}
+
+		modifiedVMArgs += " " + getAgentString(configuration, true);
+		return modifiedVMArgs;
 	}
 
 	public String[] getVMArgumentsWithAgent(String[] vmArgs, ILaunchConfiguration configuration) {
