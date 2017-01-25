@@ -9,6 +9,7 @@ import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
@@ -32,6 +33,7 @@ class DesignerGenerated extends Composite {
 	final Text loginText;
 	final Text passwordText;
 	final Text testRetrievalTimeoutText;
+	final Combo testCategoryCombo;
 
 	final Text agentLibraryText;
 	final Text collectorHost;
@@ -164,6 +166,18 @@ class DesignerGenerated extends Composite {
 
 				testRetrievalTimeoutText = new Text(grpServer, SWT.BORDER);
 				testRetrievalTimeoutText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+
+				Label lblTestCategory = new Label(grpServer, SWT.RIGHT);
+				GridData gd_lblTestCategory = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
+				gd_lblTestCategory.widthHint = LONGEST_LABEL_WIDTH_PX;
+				gd_lblTestCategory.minimumWidth = 148;
+				lblTestCategory.setLayoutData(gd_lblTestCategory);
+				lblTestCategory.setText(StringResources.preferences_global_test_category);
+
+				testCategoryCombo = new Combo(grpServer, SWT.READ_ONLY | SWT.BORDER);
+				testCategoryCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+				testCategoryCombo.add(StringResources.preferences_global_test_category_unit);
+				testCategoryCombo.add(StringResources.preferences_global_test_category_performance);
 
 			Group grpClient = new Group(centralComposite, SWT.NONE);
 			GridLayout gl_grpClient = new GridLayout(3, false);

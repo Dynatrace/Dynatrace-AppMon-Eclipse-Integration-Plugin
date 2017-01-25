@@ -50,6 +50,7 @@ public class Constants {
 	public static final int DEFAULT_SERVER_REST_PORT_SSL = 8021;
 	public static final int DEFAULT_SERVER_REST_PORT_NO_SSL = 8020;
 	public static final int DEFAULT_PREF_TIMEOUT_TESTRUN_RETRIEVAL_SECONDS = 30;
+	public static final String DEFAULT_PREF_TEST_CATEGORY = StringResources.preferences_global_test_category_unit;
 	public static final String DEFAULT_SERVER_LOGIN = "admin"; //$NON-NLS-1$
 	public static final String DEFAULT_SERVER_PASSWORD = "admin"; //$NON-NLS-1$
 	public static boolean DEFAULT_SERVER_SSL = true;
@@ -74,6 +75,7 @@ public class Constants {
 	public static final String PREF_COLLECTOR_AGENT_PORT = "dynatrace_collector_agentport"; //$NON-NLS-1$
 	public static final String PREF_SERVER_REST_PORT = "dynatrace_REST_port"; //$NON-NLS-1$
 	public static final String PREF_TIMEOUT_TESTRUN_RETRIEVAL_SECONDS = "dynatrace_REST_testresults_get_timeout"; //$NON-NLS-1$
+	public static final String PREF_TEST_CATEGORY = "dynatrace_test_category";
 	public static final String PREF_AGENT_PATH = "dynatrace_agentpath"; //$NON-NLS-1$
 	public static final String PREF_AGENT_NAME = "dynatrace_agentname"; //$NON-NLS-1$
 	public static final String PREF_AGENT_PARAMS = "dynatrace_agentparams"; //$NON-NLS-1$

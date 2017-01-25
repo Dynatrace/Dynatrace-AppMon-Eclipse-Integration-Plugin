@@ -21,6 +21,9 @@ public final class StringResources extends NLS {
 	public static String preferences_global_login_label;
 	public static String preferences_global_password_label;
 	public static String preferences_global_test_timeout;
+	public static String preferences_global_test_category;
+	public static String preferences_global_test_category_unit;
+	public static String preferences_global_test_category_performance;
 	public static String preferences_global_server_via_ssl_label;
 
 	public static String preferences_global_agentGroup;

@@ -29,6 +29,8 @@ import static com.dynatrace.diagnostics.eclipseintegration.Constants.PREF_SERVER
 import static com.dynatrace.diagnostics.eclipseintegration.Constants.PREF_SERVER_SSL;
 import static com.dynatrace.diagnostics.eclipseintegration.Constants.PREF_SWITCH_TO_JAVA_BROWSING_PERSPECTIVE;
 import static com.dynatrace.diagnostics.eclipseintegration.Constants.PREF_TIMEOUT_TESTRUN_RETRIEVAL_SECONDS;
+import static com.dynatrace.diagnostics.eclipseintegration.Constants.PREF_TEST_CATEGORY;
+import static com.dynatrace.diagnostics.eclipseintegration.Constants.DEFAULT_PREF_TEST_CATEGORY;
 import static com.dynatrace.diagnostics.eclipseintegration.Constants.getDefaultBoolean;
 import static com.dynatrace.diagnostics.eclipseintegration.Constants.getDefaultInt;
 import static com.dynatrace.diagnostics.eclipseintegration.Constants.getDefaultString;
@@ -72,6 +74,7 @@ class Configuration {
 			view.passwordText.setText( preferenceStoreSecure.get(PREF_SERVER_PASS, DEFAULT_SERVER_PASSWORD));
 			view.testRetrievalTimeoutText.setText( String.valueOf(getDefaultInt(preferenceStore,
 					PREF_TIMEOUT_TESTRUN_RETRIEVAL_SECONDS, DEFAULT_PREF_TIMEOUT_TESTRUN_RETRIEVAL_SECONDS)));
+			view.testCategoryCombo.setText( Constants.getDefaultString(preferenceStore, PREF_TEST_CATEGORY, DEFAULT_PREF_TEST_CATEGORY));
 
 			view.agentLibraryText.setText(String.valueOf(getDefaultString(preferenceStore, PREF_AGENT_PATH, "")));
 			view.collectorHost.setText( Constants.getDefaultString(preferenceStore, PREF_COLLECTOR_HOST, DEFAULT_COLLECTOR_HOST));
@@ -100,6 +103,8 @@ class Configuration {
 		view.loginText.setText( DEFAULT_SERVER_LOGIN);
 		view.passwordText.setText( DEFAULT_SERVER_PASSWORD);
 		view.testRetrievalTimeoutText.setText( Integer.toString(DEFAULT_PREF_TIMEOUT_TESTRUN_RETRIEVAL_SECONDS));
+		view.testCategoryCombo.setText( DEFAULT_PREF_TEST_CATEGORY );
+		view.testCategoryCombo.select(0);
 		view.collectorHost.setText( DEFAULT_COLLECTOR_HOST);
 		view.collectorAgentConnectionPortText.setText( String.valueOf(DEFAULT_COLLECTOR_LISTEN_TO_AGENTS_PORT));
 		view.clientHostText.setText( DEFAULT_CLIENT_HOST);
@@ -128,6 +133,7 @@ class Configuration {
 			preferenceStoreSecure.put(PREF_SERVER_PASS, view.passwordText.getText(), true);
 			String timeoutText = view.testRetrievalTimeoutText.getText();
 			preferenceStore.setValue(PREF_TIMEOUT_TESTRUN_RETRIEVAL_SECONDS, timeoutText.isEmpty() ? 1 : Integer.parseInt(timeoutText));
+			preferenceStore.setValue(PREF_TEST_CATEGORY, view.testCategoryCombo.getText());
 			preferenceStore.setValue(PREF_ENABLE_CODELINK, String.valueOf(view.enableCodeLinkCheck.getSelection()));
 			preferenceStore.setValue(PREF_CLIENT_HOST, view.clientHostText.getText());
 			preferenceStore.setValue(PREF_CLIENT_SSL, String.valueOf(view.clientViaSSLCheck.getSelection()));

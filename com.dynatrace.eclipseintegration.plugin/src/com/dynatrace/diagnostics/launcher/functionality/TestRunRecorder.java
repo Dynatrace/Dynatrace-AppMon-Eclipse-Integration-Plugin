@@ -10,8 +10,10 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunch;
+import org.eclipse.debug.internal.core.Preferences;
 
 import com.dynatrace.diagnostics.codelink.logging.LogHelper;
+import com.dynatrace.diagnostics.eclipseintegration.Activator;
 import com.dynatrace.diagnostics.eclipseintegration.Constants;
 import com.dynatrace.diagnostics.eclipseintegration.StringResources;
 import com.dynatrace.diagnostics.launcher.ui.errorpopup.TransientErrorPopupManager;
@@ -20,6 +22,7 @@ import com.dynatrace.sdk.server.exceptions.ServerConnectionException;
 import com.dynatrace.sdk.server.exceptions.ServerResponseException;
 import com.dynatrace.sdk.server.testautomation.TestAutomation;
 import com.dynatrace.sdk.server.testautomation.models.CreateTestRunRequest;
+import com.dynatrace.sdk.server.testautomation.models.TestCategory;
 import com.dynatrace.sdk.server.testautomation.models.TestRun;
 
 /**
@@ -47,6 +50,26 @@ public class TestRunRecorder {
 		request.setVersionMajor(String.valueOf(now.get(Calendar.YEAR)));
 		request.setVersionMinor(String.valueOf(now.get(Calendar.MONTH)) + 1);
 		request.setVersionRevision(String.valueOf(now.get(Calendar.DAY_OF_MONTH)));
+
+		TestCategory configuredTestCategory = TestCategory.UNIT;
+		String testCategoryName =
+			Constants.getDefaultString(Activator.getDefault().getPreferenceStore(),
+				Constants.PREF_TEST_CATEGORY,
+				Constants.DEFAULT_PREF_TEST_CATEGORY);
+		try {
+			for (TestCategory enumValue : TestCategory.values()) {
+				if (enumValue.name().equalsIgnoreCase(testCategoryName)) {
+					configuredTestCategory = enumValue;
+					break;
+				}
+			}
+		} catch (Exception e) {
+			LogHelper.createErrorStatus(
+					"Exception when retrieving test category for test run registration. "
+					+ "Test category name configured: [" + testCategoryName + "]", e);
+		}
+		request.setCategory(configuredTestCategory);
+
 		LogHelper.logInfo("Registering a testrun: " + request.toString());
 		TestRun tr = testAutomation.createTestRun(request);
 		runningTestRuns.put(launch, tr.getId());
