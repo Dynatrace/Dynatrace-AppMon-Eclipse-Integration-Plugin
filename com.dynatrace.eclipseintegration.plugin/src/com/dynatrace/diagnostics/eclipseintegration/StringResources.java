@@ -77,7 +77,7 @@ public final class StringResources extends NLS {
 
 	public static String preferences_page2_session_record;
 	public static String preferences_page2_session_record_label;
-	public static String preferences_test_type_label;
+	public static String preferences_test_category_label;
 	public static String preferences_page2_server;
 	public static String preferences_page2_server_profile;
 	public static String preferences_page2_refresh;

@@ -112,7 +112,7 @@ class AgentGroupComponent {
 		Label testTypeLabel = new Label(dynatraceGroup, SWT.NONE);
 		GridData gd_testTypeLabel = GridDataFactory.swtDefaults().hint(MAX_LABEL_WIDTH, -1).create();
 		testTypeLabel.setLayoutData(gd_testTypeLabel);
-		testTypeLabel.setText(StringResources.preferences_test_type_label);
+		testTypeLabel.setText(StringResources.preferences_test_category_label);
 		comboTestType = new Combo(dynatraceGroup, SWT.READ_ONLY | SWT.BORDER);
 		comboTestType.setLayoutData(GridDataFactory.swtDefaults().grab(true, false).align(SWT.FILL, SWT.CENTER).create());
 		comboTestType.setItems(new String[] {
