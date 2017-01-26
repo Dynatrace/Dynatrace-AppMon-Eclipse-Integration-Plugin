@@ -6,6 +6,7 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
@@ -14,6 +15,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 import com.dynatrace.diagnostics.eclipseintegration.StringResources;
+import com.dynatrace.diagnostics.launcher.functionality.TestRunCategoryCombo;
+import com.dynatrace.sdk.server.testautomation.models.TestCategory;
 
 class AgentGroupComponent {
 
@@ -21,8 +24,9 @@ class AgentGroupComponent {
 	Text profileText;
 	Text agentAdditionalParams;
 	Button chkEnableRecording;
+	Combo comboTestType;
 
-	void init(String name, boolean sessionRecord, String serverProfile, String params) {
+	void init(String name, boolean sessionRecord, String serverProfile, String params, String testRunCategory) {
 
 		if (agentName != null) {
 			agentName.setText(name);
@@ -37,6 +41,10 @@ class AgentGroupComponent {
 		if (chkEnableRecording != null) {
 			chkEnableRecording.setSelection(sessionRecord);
 		}
+
+		comboTestType.setText(testRunCategory != null
+				? testRunCategory
+				: TestRunCategoryCombo.asComboLabel(TestRunCategoryCombo.getTestCategoryGlobalConfig()));
 	}
 
 	String getName() {
@@ -53,6 +61,10 @@ class AgentGroupComponent {
 
 	String getAdditionalParams() {
 		return agentAdditionalParams.getText();
+	}
+
+	String getTestCategory() {
+		return comboTestType.getText();
 	}
 
 	void createComponent(Composite parent) {
@@ -96,6 +108,17 @@ class AgentGroupComponent {
 		chkEnableRecording = new Button(dynatraceGroup, SWT.CHECK);
 		GridData gd_chkEnableRecording = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		chkEnableRecording.setLayoutData(gd_chkEnableRecording);
+
+		Label testTypeLabel = new Label(dynatraceGroup, SWT.NONE);
+		GridData gd_testTypeLabel = GridDataFactory.swtDefaults().hint(MAX_LABEL_WIDTH, -1).create();
+		testTypeLabel.setLayoutData(gd_testTypeLabel);
+		testTypeLabel.setText(StringResources.preferences_test_type_label);
+		comboTestType = new Combo(dynatraceGroup, SWT.READ_ONLY | SWT.BORDER);
+		comboTestType.setLayoutData(GridDataFactory.swtDefaults().grab(true, false).align(SWT.FILL, SWT.CENTER).create());
+		comboTestType.setItems(new String[] {
+				TestRunCategoryCombo.asComboLabel(TestCategory.UNIT),
+				TestRunCategoryCombo.asComboLabel(TestCategory.PERFORMANCE)
+		});
 	}
 
 
@@ -105,7 +128,7 @@ class AgentGroupComponent {
 	 */
 	@Deprecated @SuppressWarnings("unused")
 	private void mockParsingRoot() {
-		init("name", true, "serverProfile", "noParams");
+		init("name", true, "serverProfile", "noParams", TestRunCategoryCombo.asComboLabel(TestCategory.UNIT));
 		Display display = new Display ();
 		Shell frame = new Shell(display);
 		frame.setLayout(new GridLayout(1, false));

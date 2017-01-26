@@ -19,6 +19,8 @@ import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 import com.dynatrace.diagnostics.eclipseintegration.StringResources;
+import com.dynatrace.diagnostics.launcher.functionality.TestRunCategoryCombo;
+import com.dynatrace.sdk.server.testautomation.models.TestCategory;
 
 import swing2swt.layout.BorderLayout;
 
@@ -176,8 +178,8 @@ class DesignerGenerated extends Composite {
 
 				testCategoryCombo = new Combo(grpServer, SWT.READ_ONLY | SWT.BORDER);
 				testCategoryCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-				testCategoryCombo.add(StringResources.preferences_global_test_category_unit);
-				testCategoryCombo.add(StringResources.preferences_global_test_category_performance);
+				testCategoryCombo.add(TestRunCategoryCombo.asComboLabel(TestCategory.UNIT));
+				testCategoryCombo.add(TestRunCategoryCombo.asComboLabel(TestCategory.PERFORMANCE));
 
 			Group grpClient = new Group(centralComposite, SWT.NONE);
 			GridLayout gl_grpClient = new GridLayout(3, false);

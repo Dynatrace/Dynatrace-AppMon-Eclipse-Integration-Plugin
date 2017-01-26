@@ -29,7 +29,7 @@ import static com.dynatrace.diagnostics.eclipseintegration.Constants.PREF_SERVER
 import static com.dynatrace.diagnostics.eclipseintegration.Constants.PREF_SERVER_SSL;
 import static com.dynatrace.diagnostics.eclipseintegration.Constants.PREF_SWITCH_TO_JAVA_BROWSING_PERSPECTIVE;
 import static com.dynatrace.diagnostics.eclipseintegration.Constants.PREF_TIMEOUT_TESTRUN_RETRIEVAL_SECONDS;
-import static com.dynatrace.diagnostics.eclipseintegration.Constants.PREF_TEST_CATEGORY;
+import static com.dynatrace.diagnostics.eclipseintegration.Constants.PREF_TEST_CATEGORY_GLOBAL;
 import static com.dynatrace.diagnostics.eclipseintegration.Constants.DEFAULT_PREF_TEST_CATEGORY;
 import static com.dynatrace.diagnostics.eclipseintegration.Constants.getDefaultBoolean;
 import static com.dynatrace.diagnostics.eclipseintegration.Constants.getDefaultInt;
@@ -46,6 +46,7 @@ import org.eclipse.swt.SWT;
 import com.dynatrace.diagnostics.codelink.logging.LogHelper;
 import com.dynatrace.diagnostics.eclipseintegration.Activator;
 import com.dynatrace.diagnostics.eclipseintegration.Constants;
+import com.dynatrace.diagnostics.launcher.functionality.TestRunCategoryCombo;
 
 /**
  * @author Michal.Weyer
@@ -74,7 +75,7 @@ class Configuration {
 			view.passwordText.setText( preferenceStoreSecure.get(PREF_SERVER_PASS, DEFAULT_SERVER_PASSWORD));
 			view.testRetrievalTimeoutText.setText( String.valueOf(getDefaultInt(preferenceStore,
 					PREF_TIMEOUT_TESTRUN_RETRIEVAL_SECONDS, DEFAULT_PREF_TIMEOUT_TESTRUN_RETRIEVAL_SECONDS)));
-			view.testCategoryCombo.setText( Constants.getDefaultString(preferenceStore, PREF_TEST_CATEGORY, DEFAULT_PREF_TEST_CATEGORY));
+			view.testCategoryCombo.setText( Constants.getDefaultString(preferenceStore, PREF_TEST_CATEGORY_GLOBAL, DEFAULT_PREF_TEST_CATEGORY));
 
 			view.agentLibraryText.setText(String.valueOf(getDefaultString(preferenceStore, PREF_AGENT_PATH, "")));
 			view.collectorHost.setText( Constants.getDefaultString(preferenceStore, PREF_COLLECTOR_HOST, DEFAULT_COLLECTOR_HOST));
@@ -133,7 +134,7 @@ class Configuration {
 			preferenceStoreSecure.put(PREF_SERVER_PASS, view.passwordText.getText(), true);
 			String timeoutText = view.testRetrievalTimeoutText.getText();
 			preferenceStore.setValue(PREF_TIMEOUT_TESTRUN_RETRIEVAL_SECONDS, timeoutText.isEmpty() ? 1 : Integer.parseInt(timeoutText));
-			preferenceStore.setValue(PREF_TEST_CATEGORY, view.testCategoryCombo.getText());
+			preferenceStore.setValue(PREF_TEST_CATEGORY_GLOBAL, view.testCategoryCombo.getText());
 			preferenceStore.setValue(PREF_ENABLE_CODELINK, String.valueOf(view.enableCodeLinkCheck.getSelection()));
 			preferenceStore.setValue(PREF_CLIENT_HOST, view.clientHostText.getText());
 			preferenceStore.setValue(PREF_CLIENT_SSL, String.valueOf(view.clientViaSSLCheck.getSelection()));

@@ -11,6 +11,8 @@ import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
@@ -86,6 +88,21 @@ class DynatraceAgentConfigurationTab implements ILaunchConfigurationTab {
 				dialog.updateButtons();
 			}
 		});
+		agentGroupComponent.comboTestType.addFocusListener(new FocusListener() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				isValid(null);
+				dialog.updateMessage();
+				dialog.updateButtons();
+			}
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				isValid(null);
+				dialog.updateMessage();
+				dialog.updateButtons();
+			}
+		});
 	}
 
 
@@ -133,8 +150,9 @@ class DynatraceAgentConfigurationTab implements ILaunchConfigurationTab {
 			String agentName = configuration.getAttribute(Constants.PREF_AGENT_NAME, defaultName);
 			String params = configuration.getAttribute(Constants.PREF_AGENT_PARAMS, defaultParams);
 			boolean sessionRecord = configuration.getAttribute(Constants.PREF_SESSION_RECORD, false);
+			String testRunCategory = configuration.getAttribute(Constants.PREF_TEST_CATEGORY_PER_LAUNCH, Constants.DEFAULT_PREF_TEST_CATEGORY);
 
-			agentGroupComponent.init(agentName, sessionRecord, serverProfile, params);
+			agentGroupComponent.init(agentName, sessionRecord, serverProfile, params, testRunCategory);
 
 		} catch (CoreException e) {
 			LogHelper.logError("Could not read agent configuration from launch configuration! [ErrorLocation-56]", e);
@@ -168,6 +186,7 @@ class DynatraceAgentConfigurationTab implements ILaunchConfigurationTab {
 			configuration.setAttribute(Constants.PREF_AGENT_PARAMS, agentGroupComponent.getAdditionalParams());
 			configuration.setAttribute(Constants.PREF_SESSION_RECORD, agentGroupComponent.isSessionRecord());
 			configuration.setAttribute(Constants.PREF_SERVER_PROFILE, agentGroupComponent.getServerProfile());
+			configuration.setAttribute(Constants.PREF_TEST_CATEGORY_PER_LAUNCH, agentGroupComponent.getTestCategory());
 			configuration.doSave();
 		} catch (CoreException e) {
 			TransientErrorPopupManager.logAndShowError("Error storing launch configuration [ErrorLocation-57]", e);
@@ -185,8 +204,9 @@ class DynatraceAgentConfigurationTab implements ILaunchConfigurationTab {
 		String defaultParams = Constants.getDefaultString(prefStore, Constants.PREF_AGENT_PARAMS, "");
 		boolean sessionRecord = prefStore.getBoolean(Constants.PREF_SESSION_RECORD);
 		String serverProfile = Constants.getDefaultString(prefStore, Constants.PREF_SERVER_PROFILE, Constants.DEFAULT_AGENT_NAME);
+		String testRunCategory = Constants.getDefaultString(prefStore, Constants.PREF_TEST_CATEGORY_PER_LAUNCH, Constants.DEFAULT_PREF_TEST_CATEGORY);
 
-		agentGroupComponent.init(defaultName, sessionRecord, serverProfile, defaultParams);
+		agentGroupComponent.init(defaultName, sessionRecord, serverProfile, defaultParams, testRunCategory);
 	}
 
 	@Override

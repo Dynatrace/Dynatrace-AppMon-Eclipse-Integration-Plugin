@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunch;
+import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.internal.core.Preferences;
 
 import com.dynatrace.diagnostics.codelink.logging.LogHelper;
@@ -43,7 +44,7 @@ public class TestRunRecorder {
 		this.testAutomation = new TestAutomation(client);
 	}
 
-	public String registerNewTestRun(ILaunch launch) throws ServerConnectionException, ServerResponseException {
+	public String registerNewTestRun(ILaunch launch, ILaunchConfigurationWorkingCopy workingCopy) throws ServerConnectionException, ServerResponseException {
 		Calendar now = Calendar.getInstance();
 		CreateTestRunRequest request = new CreateTestRunRequest(getProfileName(launch),
 				new SimpleDateFormat("HH:mm:ss").format(now.getTime()));
@@ -51,24 +52,15 @@ public class TestRunRecorder {
 		request.setVersionMinor(String.valueOf(now.get(Calendar.MONTH)) + 1);
 		request.setVersionRevision(String.valueOf(now.get(Calendar.DAY_OF_MONTH)));
 
-		TestCategory configuredTestCategory = TestCategory.UNIT;
-		String testCategoryName =
-			Constants.getDefaultString(Activator.getDefault().getPreferenceStore(),
-				Constants.PREF_TEST_CATEGORY,
-				Constants.DEFAULT_PREF_TEST_CATEGORY);
 		try {
-			for (TestCategory enumValue : TestCategory.values()) {
-				if (enumValue.name().equalsIgnoreCase(testCategoryName)) {
-					configuredTestCategory = enumValue;
-					break;
-				}
-			}
+			TestCategory globalTestCategory = TestRunCategoryCombo.getTestCategoryGlobalConfig();
+			String perBuildCategory = workingCopy.getAttribute(Constants.PREF_TEST_CATEGORY_PER_LAUNCH, (String) null);
+			request.setCategory(perBuildCategory != null ?
+					TestRunCategoryCombo.parseEnum(perBuildCategory)
+					: globalTestCategory);
 		} catch (Exception e) {
-			LogHelper.createErrorStatus(
-					"Exception when retrieving test category for test run registration. "
-					+ "Test category name configured: [" + testCategoryName + "]", e);
+			throw new RuntimeException("Exception while parsing test category for test run", e);
 		}
-		request.setCategory(configuredTestCategory);
 
 		LogHelper.logInfo("Registering a testrun: " + request.toString());
 		TestRun tr = testAutomation.createTestRun(request);

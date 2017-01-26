@@ -38,7 +38,7 @@ class LaunchNew {
 
 		if (JUnitLaunchCheck.isJUnitLaunch(launchDelegateClass)) {
 			try {
-				String testRunID = testRunRecorder.registerNewTestRun(launch);
+				String testRunID = testRunRecorder.registerNewTestRun(launch, workingCopy);
 				workingCopy.setAttribute(Constants.PREF_AGENT_PARAMS,
 						com.dynatrace.diagnostics.launcher.functionality.TestRunRecorder.TESTRUN_ID_PROPERTY_NAME + "="
 								+ testRunID);
