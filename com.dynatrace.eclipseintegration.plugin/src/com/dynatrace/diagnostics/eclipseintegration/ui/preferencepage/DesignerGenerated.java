@@ -18,6 +18,8 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import com.dynatrace.diagnostics.eclipseintegration.Activator;
+import com.dynatrace.diagnostics.eclipseintegration.Constants;
 import com.dynatrace.diagnostics.eclipseintegration.StringResources;
 import com.dynatrace.diagnostics.launcher.functionality.TestRunCategoryCombo;
 import com.dynatrace.sdk.server.testautomation.models.TestCategory;
@@ -75,7 +77,7 @@ class DesignerGenerated extends Composite {
 		companyLogoImg.setLayoutData(new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 1));
 		companyLogoImg.setAlignment(SWT.CENTER);
 		companyLogoImg.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		companyLogoImg.setImage(ResourceManager.getPluginImage("com.dynatrace.eclipseintegration", "img/companylogo.png"));
+		companyLogoImg.setImage(Activator.getDefault().getImageRegistry().get(Constants.IMG_COMPANY_LOGO));
 
 		Label sloganLabel = new Label(logoHeaderComposite, SWT.NONE);
 		sloganLabel.setText(StringResources.preferences_global_slogan_build_optimize_test);
