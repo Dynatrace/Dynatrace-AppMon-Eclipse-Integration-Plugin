@@ -2,7 +2,7 @@
 <site>
 	<feature url="features/com.dynatrace.eclipseintegration_6.5.6.qualifier.jar"
 			 id="com.dynatrace.eclipseintegration"
-			 version="6.5.6">
+			 version="6.5.7.qualifier">
       <category name="Dynatrace"/>
    </feature>
 	<category-def name="Dynatrace" label="Dynatrace">
