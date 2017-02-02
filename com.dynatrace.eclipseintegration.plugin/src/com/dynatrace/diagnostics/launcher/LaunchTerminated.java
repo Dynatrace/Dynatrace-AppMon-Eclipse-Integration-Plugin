@@ -70,12 +70,12 @@ class LaunchTerminated {
 			monitor.worked(1);
 
 			try {
-				sessionRecorder.stopRecording(launches);
 				monitor.worked(SESSION_RETRIEVAL_WORK_AMT - 1);
 
 				final List<TestRun> finishedTestRuns = new ArrayList<TestRun>();
 				finishedTestRuns.addAll(testRunRecorder.finishTestRuns(launches, launchTestCounts,
 						new TestRetrieverMonitor(new SubProgressMonitor(monitor, 70))));
+				sessionRecorder.stopRecording(launches);
 				if (finishedTestRuns.isEmpty()) {
 					return Status.CANCEL_STATUS;
 				}
