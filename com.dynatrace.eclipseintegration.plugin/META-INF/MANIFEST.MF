@@ -33,5 +33,5 @@ Bundle-ClassPath: .,
  lib/commons-lang3-3.4.jar,
  lib/swing2swt.jar,
  lib/codelink-wrapper-0.0.1.jar,
- lib/server-rest-sdk-0.0.1.jar
+ lib/server-rest-sdk-0.0.2.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

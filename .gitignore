@@ -1,6 +1,7 @@
 .idea/
 target/
 bin/
+.settings/
 *.iml
 
 # Windows image file caches
@@ -9,3 +10,4 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
+/.project
