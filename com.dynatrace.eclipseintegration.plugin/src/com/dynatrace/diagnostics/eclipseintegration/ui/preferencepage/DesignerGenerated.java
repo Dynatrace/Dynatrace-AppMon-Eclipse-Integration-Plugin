@@ -3,6 +3,7 @@ package com.dynatrace.diagnostics.eclipseintegration.ui.preferencepage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
@@ -15,7 +16,6 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 import com.dynatrace.diagnostics.eclipseintegration.Activator;
@@ -27,8 +27,6 @@ import com.dynatrace.sdk.server.testautomation.models.TestCategory;
 import swing2swt.layout.BorderLayout;
 
 class DesignerGenerated extends Composite {
-
-	private static final int LONGEST_LABEL_WIDTH_PX = 118;
 
 	final Label companyLogoImg;
 	final Text serverText;
@@ -117,7 +115,6 @@ class DesignerGenerated extends Composite {
 
 				Label lblServer = new Label(grpServer, SWT.RIGHT);
 				GridData gd_lblServer = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
-				gd_lblServer.widthHint = LONGEST_LABEL_WIDTH_PX;
 				lblServer.setLayoutData(gd_lblServer);
 				lblServer.setText(StringResources.preferences_global_server_label);
 
@@ -126,7 +123,6 @@ class DesignerGenerated extends Composite {
 
 				Label lblServerRESTPort = new Label(grpServer, SWT.RIGHT);
 				GridData gd_lblServerRESTPort = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
-				gd_lblServerRESTPort.widthHint = LONGEST_LABEL_WIDTH_PX;
 				lblServerRESTPort.setLayoutData(gd_lblServerRESTPort);
 				lblServerRESTPort.setText(StringResources.preferences_global_server_REST_port_label);
 				serverRESTPortText = new Text(grpServer, SWT.BORDER);
@@ -144,7 +140,6 @@ class DesignerGenerated extends Composite {
 
 				Label lblLogin = new Label(grpServer, SWT.RIGHT);
 				GridData gd_lblLogin = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
-				gd_lblLogin.widthHint = LONGEST_LABEL_WIDTH_PX;
 				lblLogin.setLayoutData(gd_lblLogin);
 				lblLogin.setText(StringResources.preferences_global_login_label);
 
@@ -153,7 +148,6 @@ class DesignerGenerated extends Composite {
 
 				Label lblPassword = new Label(grpServer, SWT.RIGHT);
 				GridData gd_lblPassword = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
-				gd_lblPassword.widthHint = LONGEST_LABEL_WIDTH_PX;
 				gd_lblPassword.minimumWidth = 148;
 				lblPassword.setLayoutData(gd_lblPassword);
 				lblPassword.setText(StringResources.preferences_global_password_label);
@@ -163,7 +157,6 @@ class DesignerGenerated extends Composite {
 
 				Label lblRetrievalTimeout = new Label(grpServer, SWT.RIGHT);
 				GridData gd_lblRetrievalTimeout = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
-				gd_lblRetrievalTimeout.widthHint = LONGEST_LABEL_WIDTH_PX;
 				gd_lblRetrievalTimeout.minimumWidth = 148;
 				lblRetrievalTimeout.setLayoutData(gd_lblRetrievalTimeout);
 				lblRetrievalTimeout.setText(StringResources.preferences_global_test_timeout);
@@ -173,7 +166,6 @@ class DesignerGenerated extends Composite {
 
 				Label lblTestCategory = new Label(grpServer, SWT.RIGHT);
 				GridData gd_lblTestCategory = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
-				gd_lblTestCategory.widthHint = LONGEST_LABEL_WIDTH_PX;
 				gd_lblTestCategory.minimumWidth = 148;
 				lblTestCategory.setLayoutData(gd_lblTestCategory);
 				lblTestCategory.setText(StringResources.preferences_global_test_category);
@@ -192,7 +184,6 @@ class DesignerGenerated extends Composite {
 
 				Label lblNewLabel = new Label(grpClient, SWT.RIGHT);
 				GridData gd_lblNewLabel = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
-				gd_lblNewLabel.widthHint = LONGEST_LABEL_WIDTH_PX;
 				gd_lblNewLabel.minimumWidth = 148;
 				lblNewLabel.setLayoutData(gd_lblNewLabel);
 				lblNewLabel.setBounds(0, 0, 55, 15);
@@ -205,7 +196,6 @@ class DesignerGenerated extends Composite {
 
 				Label lblCollectorServerHost = new Label(grpClient, SWT.RIGHT);
 				GridData gd_lblCollectorServerHost = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
-				gd_lblCollectorServerHost.widthHint = LONGEST_LABEL_WIDTH_PX;
 				lblCollectorServerHost.setLayoutData(gd_lblCollectorServerHost);
 				lblCollectorServerHost.setText(StringResources.preferences_global_collector_host_label);
 				collectorHost = new Text(grpClient, SWT.BORDER);
@@ -213,7 +203,6 @@ class DesignerGenerated extends Composite {
 
 				Label lblCollectorServerPort = new Label(grpClient, SWT.RIGHT);
 				GridData gd_lblCollectorServerPort = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
-				gd_lblCollectorServerPort.widthHint = LONGEST_LABEL_WIDTH_PX;
 				lblCollectorServerPort.setLayoutData(gd_lblCollectorServerPort);
 				lblCollectorServerPort.setText(StringResources.preferences_global_collector_agent_port_label);
 				collectorAgentConnectionPortText = new Text(grpClient, SWT.BORDER);
@@ -251,7 +240,6 @@ class DesignerGenerated extends Composite {
 
 				Label lblClientRestPort = new Label(grpCodelink, SWT.RIGHT);
 				GridData gd_lblClientRestPort = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
-				gd_lblClientRestPort.widthHint = LONGEST_LABEL_WIDTH_PX;
 				lblClientRestPort.setLayoutData(gd_lblClientRestPort);
 				lblClientRestPort.setText(StringResources.preferences_global_client_port);
 
@@ -264,17 +252,31 @@ class DesignerGenerated extends Composite {
 				Label lblClientConnectSSL = new Label(grpCodelink, SWT.NONE);
 				lblClientConnectSSL.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 				lblClientConnectSSL.setAlignment(SWT.RIGHT);
-				lblClientConnectSSL.setText("Connect using SSL");
+				lblClientConnectSSL.setText(StringResources.preferences_global_client_via_ssl_label);
 
 				clientViaSSLCheck = new Button(grpCodelink, SWT.CHECK);
 
 				Label lblUseJavaBrowsing = new Label(grpCodelink, SWT.WRAP);
 				lblUseJavaBrowsing.setAlignment(SWT.RIGHT);
 				GridData layoutData = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
-				layoutData.widthHint = LONGEST_LABEL_WIDTH_PX;
 				lblUseJavaBrowsing.setLayoutData(layoutData);
-				lblUseJavaBrowsing.setText("Use Java Browsing Perspective");
+				lblUseJavaBrowsing.setText(StringResources.preferences_global_switch_to_Java_Browsing_Perspective);
 				switchToJavaBrowsingCheck = new Button(grpCodelink, SWT.CHECK);
+
+				GC gc = new GC(lblRetrievalTimeout);
+				int longestLabelWidth = gc.textExtent(StringResources.preferences_global_test_timeout).x;
+
+				gd_lblServer.widthHint = longestLabelWidth;
+				gd_lblServerRESTPort.widthHint = longestLabelWidth;
+				gd_lblLogin.widthHint = longestLabelWidth;
+				gd_lblPassword.widthHint = longestLabelWidth;
+				gd_lblRetrievalTimeout.widthHint = longestLabelWidth;
+				gd_lblTestCategory.widthHint = longestLabelWidth;
+				gd_lblNewLabel.widthHint = longestLabelWidth;
+				gd_lblCollectorServerHost.widthHint = longestLabelWidth;
+				gd_lblCollectorServerPort.widthHint = longestLabelWidth;
+				gd_lblClientRestPort.widthHint = longestLabelWidth;
+				layoutData.widthHint = longestLabelWidth;
 	}
 
 	@Override
