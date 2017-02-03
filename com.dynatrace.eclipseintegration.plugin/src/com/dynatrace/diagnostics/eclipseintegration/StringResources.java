@@ -35,6 +35,7 @@ public final class StringResources extends NLS {
 	public static String preferences_global_CodeLinkGroup;
 	public static String preferences_global_client_host;
 	public static String preferences_global_client_port;
+	public static String preferences_global_client_via_ssl_label;
 	public static String preferences_global_enable_code_link;
 	public static String preferences_global_switch_to_Java_Browsing_Perspective;
 
