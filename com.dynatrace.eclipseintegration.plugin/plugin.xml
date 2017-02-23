@@ -53,8 +53,8 @@
               type="org.eclipse.pde.ui.JunitLaunchConfig">
       </launchDelegate>
       <launchDelegate
-              delegate="com.dynatrace.diagnostics.launcher.DynatraceEclipseLaunchDelegate"
-              id="com.dynatrace.launcher.launching.DynatraceEclipseLaunchDelegate" modes="dynatrace"
+              delegate="com.dynatrace.diagnostics.launcher.eclipsedelegates.DynatraceEclipseLaunchDelegate"
+              id="com.dynatrace.diagnostics.launcher.eclipsedelegates.DynatraceEclipseLaunchDelegate" modes="dynatrace"
               type="org.eclipse.pde.ui.RuntimeWorkbench">
       </launchDelegate>
    </extension>
