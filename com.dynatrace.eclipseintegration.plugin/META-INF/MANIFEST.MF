@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: com.dynatrace.eclipseintegration.plugin;singleton:=true
-Bundle-Version: 6.5.12
+Bundle-Version: 6.5.13.qualifier
 Bundle-Activator: com.dynatrace.diagnostics.eclipseintegration.Activator
 Bundle-Localization: plugin
 Require-Bundle: 
