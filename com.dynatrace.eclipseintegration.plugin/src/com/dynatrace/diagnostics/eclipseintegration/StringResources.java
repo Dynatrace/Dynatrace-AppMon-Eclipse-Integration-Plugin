@@ -47,13 +47,7 @@ public final class StringResources extends NLS {
 	public static String link_url_no_testruns;
 	public static String link_url_error_code;
 
-	public static String helpURLText;
 	public static String javaproject_properties_page1_enableChk;
-
-	public static String preferences_page0_title;
-	public static String preferences_page0_connection_group;
-	public static String preferences_page0_client_port;
-	public static String preferences_page1_product_text;
 
 	public static String preferences_page1_serverSettingsGroup;
 	public static String preferences_page1_autostartServerChk;
@@ -71,8 +65,6 @@ public final class StringResources extends NLS {
 	public static String preferences_page2_agent;
 	public static String preferences_page2_agent_lib;
 	public static String preferences_page2_agent_name;
-	public static String preferences_page2_agent_target_host;
-	public static String preferences_page2_agent_target_port;
 	public static String preferences_page2_agent_additional_params;
 	public static String preferences_page2_agent_lib_browse;
 

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: com.dynatrace.eclipseintegration.plugin;singleton:=true
-Bundle-Version: 6.5.12.qualifier
+Bundle-Version: 6.5.12
 Bundle-Activator: com.dynatrace.diagnostics.eclipseintegration.Activator
 Bundle-Localization: plugin
 Require-Bundle: 
@@ -32,6 +32,6 @@ Import-Package: org.eclipse.swt.widgets
 Bundle-ClassPath: .,
  lib/commons-lang3-3.4.jar,
  lib/swing2swt.jar,
- lib/codelink-wrapper-0.0.1.jar,
+ lib/codelink-wrapper-0.0.2.jar,
  lib/server-rest-sdk-0.0.2.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

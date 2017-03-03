@@ -4,7 +4,7 @@
 
   <groupId>com.dynatrace.eclipseintegration</groupId>
   <artifactId>parent</artifactId>
-  <version>6.5.12-SNAPSHOT</version>
+  <version>6.5.12</version>
   <packaging>pom</packaging>
 
   <modules>
