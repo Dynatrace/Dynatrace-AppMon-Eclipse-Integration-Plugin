@@ -38,7 +38,7 @@ The Dynatrace Eclipse Integration Plugin enable you to:
 ### Prerequisites
 
 * Dynatrace Application Monitoring Version: 6.1, 6.2, 6.3, 6.5
-* Eclipse Version: Juno, Kepler, Luna, Mars
+* Eclipse Version: Juno, Kepler, Luna, Mars, Neon
 
 Find further information in the [Dynatrace community](https://community.dynatrace.com/community/display/DL/Dynatrace+Eclipse+Integration+Plugin).
 
