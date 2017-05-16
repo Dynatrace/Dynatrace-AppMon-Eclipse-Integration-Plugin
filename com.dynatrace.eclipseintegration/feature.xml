@@ -2,7 +2,7 @@
 <feature
       id="com.dynatrace.eclipseintegration"
       label="Dynatrace Application Monitoring for Eclipse"
-      version="6.5.13.qualifier"
+      version="6.5.13"
       provider-name="Dynatrace">
 
    <description url="http://www.Dynatrace.com/apm">
@@ -39,7 +39,7 @@ limitations under the License.]]>
          id="com.dynatrace.eclipseintegration.plugin"
          download-size="0"
          install-size="0"
-         version="6.5.13.qualifier"
+         version="6.5.13"
          unpack="false"/>
 
 </feature>
