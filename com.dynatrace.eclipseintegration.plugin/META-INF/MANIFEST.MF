@@ -5,8 +5,7 @@ Bundle-SymbolicName: com.dynatrace.eclipseintegration.plugin;singleton:=true
 Bundle-Version: 6.5.14.qualifier
 Bundle-Activator: com.dynatrace.diagnostics.eclipseintegration.Activator
 Bundle-Localization: plugin
-Require-Bundle: 
- org.eclipse.core.resources,
+Require-Bundle: org.eclipse.core.resources,
  org.eclipse.core.runtime,
  org.eclipse.debug.ui,
  org.eclipse.jdt.ui,
@@ -30,8 +29,16 @@ Bundle-Vendor: %providerName
 Plugin-Class: com.dynatrace.diagnostics.eclipseintegration.Activator
 Import-Package: org.eclipse.swt.widgets
 Bundle-ClassPath: .,
- lib/commons-lang3-3.4.jar,
- lib/swing2swt.jar,
  lib/codelink-wrapper-0.0.2.jar,
- lib/server-rest-sdk-0.0.2.jar
+ lib/commons-codec-1.9.jar,
+ lib/commons-lang3-3.4.jar,
+ lib/commons-logging-1.2.jar,
+ lib/httpclient-4.5.2.jar,
+ lib/httpcore-4.4.4.jar,
+ lib/org.eclipse.persistence.antlr-2.5.0.jar,
+ lib/org.eclipse.persistence.asm-2.5.0.jar,
+ lib/org.eclipse.persistence.core-2.5.0.jar,
+ lib/org.eclipse.persistence.moxy-2.5.0.jar,
+ lib/server-rest-sdk-7.0.0.jar,
+ lib/swing2swt.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

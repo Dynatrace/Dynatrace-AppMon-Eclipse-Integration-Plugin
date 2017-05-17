@@ -5,7 +5,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-lang3-3.4.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/swing2swt.jar"/>
-	<classpathentry kind="lib" path="lib/codelink-wrapper-0.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/server-rest-sdk-0.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/codelink-wrapper-0.0.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/server-rest-sdk-7.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/httpclient-4.5.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
