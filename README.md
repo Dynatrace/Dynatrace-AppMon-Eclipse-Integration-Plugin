@@ -31,13 +31,16 @@ The Dynatrace Eclipse Integration Plugin enables you to:
 * Dynatrace Application Monitoring Version: 6.3, 6.5, 7.0
 * Eclipse Version: Juno, Kepler, Luna, Mars, Neon
 
-Find further information in the [Dynatrace community](https://community.dynatrace.com/community/display/DL/Dynatrace+Eclipse+Integration+Plugin).
+### Use Eclipse marketplace
 
-* Download the [latest plugin archive](https://github.com/Dynatrace/Dynatrace-Eclipse-Integration-Plugin/releases/
-* unzip the archive
+![marketplace entry](/img/conf/eclipse_marketplace-dynatrace_eclipse-integration-plugin.png)
+
+### Download from github
+
+* Download the [latest plugin .zip archive](https://github.com/Dynatrace/Dynatrace-Eclipse-Integration-Plugin/releases/)
 * in Eclipse, click on "Help" / "Install New Software..."
-* Add.., Local...
-* select the extracted CodeLink63 directory
+* Add.., Archive...
+* select the downloaded archive
 
 ![add site](/img/conf/add_site.png)
 
