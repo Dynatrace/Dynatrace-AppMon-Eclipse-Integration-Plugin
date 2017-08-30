@@ -26,7 +26,7 @@ Post any problems, questions or suggestions to the Dynatrace Community's [Applic
 > Under the "Run with AppMon" [toolbar](/img/use/run_icon_on_bar.png): select "Run with AppMon Configurations...", select a relevant configuration, [Dynatrace AppMon tab](/img/conf/run_with_appmon_configuration_2.png)
 
 ##### Can I have the Dynatrace Agent connect directly into the AppMon Server without a collector?
-> Yes, input the server's host and port as the collector's host and port into Eclipse global Dynatrace AppMon configuration under "Window \ Preferences \ Dynatrace AppMon".
+> Yes, provided that you enable the Embedded Collector in AppMon Server configuration. To do that, run Dynatrace AppMon Client, open Settings menu \ Dynatrace Server... \ Services \ General tab \ Embedded Collector Settings section and select the "Allow Agent Connections to Dynatrace Server" option. Now, use the server's host and embedded collector's port as the collector's host and port into Eclipse global Dynatrace AppMon configuration under "Window \ Preferences \ Dynatrace AppMon".
 
 ##### Dynatrace AppMon Server port numbers -- where can I find them?
 > Run Dynatrace AppMon Client, open Settings menu \ Dynatrace Server... \ Services \ Management tab \ Web Server section
