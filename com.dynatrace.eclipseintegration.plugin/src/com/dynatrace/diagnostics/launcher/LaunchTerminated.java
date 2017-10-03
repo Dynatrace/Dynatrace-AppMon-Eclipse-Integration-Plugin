@@ -34,6 +34,8 @@ import com.dynatrace.sdk.server.testautomation.models.TestRun;
  */
 class LaunchTerminated {
 
+	private static final int TEST_COMPLETION_POLLING_INTERVAL_MS = 100;
+	private static final int MAX_WAIT_TEST_COMPLETION_ON_SESSION_MS = 30*1000;
 	private final SessionRecorder sessionRecorder;
 	private final TestRunRecorder testRunRecorder;
 	private final Map<WeakReference<ILaunch>, Integer> JUnitLaunch_testCount = new ConcurrentHashMap<WeakReference<ILaunch>, Integer>();
@@ -159,10 +161,10 @@ class LaunchTerminated {
 		@Override
 		public int expectedTestCountsFor(ILaunch launch) throws InterruptedException {
 			long startPolling = System.currentTimeMillis();
-			while (System.currentTimeMillis() < startPolling + 30*1000 ) {
-				// Required data arrives from a different thread. I expect the data
-				// to be available within a sensible time span, normally arrives within 1 second.
-				// The user waits on a progress bar anyhow.
+			while (System.currentTimeMillis() < startPolling + MAX_WAIT_TEST_COMPLETION_ON_SESSION_MS ) {
+				// Required data arrives from a different thread.
+				// The data normally arrives within 1 second.
+				// The user waits on a progress bar.
 
 				for (WeakReference<ILaunch> iLaunchWeakReference : JUnitLaunch_testCount.keySet()) {
 					ILaunch launchDereferenced = iLaunchWeakReference.get();
@@ -170,8 +172,7 @@ class LaunchTerminated {
 						return JUnitLaunch_testCount.get(iLaunchWeakReference);
 					}
 				}
-				Thread.sleep(100);
-				System.out.println("Ping");
+				Thread.sleep(TEST_COMPLETION_POLLING_INTERVAL_MS);
 			}
 			throw new IllegalStateException("No test run count found. [ErrorLocation-33]");
 		}
