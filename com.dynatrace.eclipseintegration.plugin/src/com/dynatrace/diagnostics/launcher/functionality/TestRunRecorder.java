@@ -121,7 +121,7 @@ public class TestRunRecorder {
 	}
 
 	public interface ContainsLaunchTestCounts {
-		int expectedTestCountsFor(ILaunch launch);
+		int expectedTestCountsFor(ILaunch launch) throws InterruptedException;
 	}
 
 	public interface ProgressMonitor {
