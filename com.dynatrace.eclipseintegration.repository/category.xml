@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-	<feature url="features/com.dynatrace.eclipseintegration_7.0.1.qualifier.jar"
+	<feature url="features/com.dynatrace.eclipseintegration_7.0.1.jar"
 			 id="com.dynatrace.eclipseintegration"
-			 version="7.0.1.qualifier">
+			 version="7.0.1">
       <category name="Dynatrace"/>
    </feature>
 	<category-def name="Dynatrace" label="Dynatrace">
