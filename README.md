@@ -28,8 +28,8 @@ The Dynatrace Eclipse Integration Plugin enables you to:
 
 ### Prerequisites
 
-* Dynatrace Application Monitoring Version: 6.3, 6.5, 7.0
-** Java agent must be installed locally on the development machine
+* Dynatrace Application Monitoring Version: 6.3+
+* Java agent must be installed locally on the development machine
 * Eclipse Version: Juno, Kepler, Luna, Mars, Neon
 
 ### Use Eclipse marketplace
